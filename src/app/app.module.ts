@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { MaterialsModule } from './materials/materials.module';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { QrgeneratorModule } from './pages/qrgenerator/qrgenerator.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     QrgeneratorModule,
     AppRoutingModule,
+    MaterialsModule,
     BrowserAnimationsModule
   ],
   providers: [],
