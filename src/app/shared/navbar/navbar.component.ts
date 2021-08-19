@@ -23,7 +23,11 @@ import { Component, OnInit } from '@angular/core';
       </mat-menu>
     </mat-toolbar>
   `,
-  styles: [
+  styles: [`
+    mat-toolbar {
+      height: 35px;
+    }
+  `
   ]
 })
 export class NavbarComponent implements OnInit {
