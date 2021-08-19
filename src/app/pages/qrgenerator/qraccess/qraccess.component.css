@@ -1,6 +1,8 @@
+@import '../../../../styles.css';
+
 .container {
     /* background-color: green; */
-    height: calc(100vh - 35px);
+    height: calc(100vh - var(--navbar-height));
 }
 
 .grid {
@@ -11,7 +13,7 @@
 
 .search-container {
     grid-column: 1/3;
-    height: 120px;
+    height: var(--search-container-height);
 }
 
 section, .grid div {
@@ -20,6 +22,6 @@ section, .grid div {
 }
 
 .list-container, .info-container {
-    height: calc(100vh - 155px);
+    height: calc(100vh - var(--search-container-height) - var(--navbar-height));
 }
 
