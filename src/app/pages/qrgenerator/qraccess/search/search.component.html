@@ -2,7 +2,7 @@
     <!-- <input type="text" placeholder="Buscar"> -->
     <mat-form-field style="margin-bottom: 0" class="example-form-field" appearance="outline">
         <mat-label>Buscar</mat-label>
-        <input matInput type="text" [(ngModel)]="value">
+        <input matInput type="text" [(ngModel)]="value" (keyup)="search(value)">
         <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
             <mat-icon>close</mat-icon>
         </button>
