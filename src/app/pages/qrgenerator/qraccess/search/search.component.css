@@ -13,3 +13,10 @@ mat-form-field {
     /* width: 100%; */
     margin-right: 5px;
 }
+
+@media screen and (max-width: 768px){
+    .search-container {
+        display: grid;
+        grid-template-columns: 100%;
+    }
+}
