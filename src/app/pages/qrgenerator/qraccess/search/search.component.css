@@ -1,0 +1,15 @@
+.search-container {
+    /* display: flex;
+    align-items: center;
+    width: 100%;
+    margin-left: 15px;
+    background-color: blueviolet; */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: 15px;
+}
+
+mat-form-field {
+    /* width: 100%; */
+    margin-right: 5px;
+}

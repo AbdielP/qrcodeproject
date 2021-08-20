@@ -3,7 +3,14 @@
 ::ng-deep :root {
     --navbar-height: 35px;
     --search-container-height: 90px;
+    --border-primary-color: #b7b7b8;
 }
+
+/* :host ::ng-deep .mat-form-field-wrapper{
+    margin: 0 !important;
+    padding: 0;
+} */
+
 
 html, body { 
     height: 100%; 
