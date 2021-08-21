@@ -21,6 +21,24 @@
     margin-left: 5px;
 }
 
+mat-list {
+    /* background-color: grey; */
+}
+
 .users-container {
     padding: 0 .7rem;
+}mat-list-item p {
+    font-size: .85rem!important;
+    display: flex;
+    /* background-color: green; */
+    width: 100%;
+    justify-content: space-between;
+    margin: 0;
+}.status {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    /* background-color: rebeccapurple; */
+}.status mat-icon {
+    font-size: 16px;
 }
