@@ -37,4 +37,6 @@
     /* background-color: rebeccapurple; */
 }.status mat-icon {
     font-size: 16px;
+}mat-divider {
+    border-top-color: var(--border-primary-color);
 }
