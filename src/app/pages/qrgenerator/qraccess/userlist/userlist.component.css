@@ -19,6 +19,7 @@
     align-items: center;
 }mat-icon {
     margin-left: 5px;
+    color: var(--border-primary-color)
 }
 
 mat-list-item {
