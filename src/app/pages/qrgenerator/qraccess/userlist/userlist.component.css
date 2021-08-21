@@ -21,6 +21,12 @@
     margin-left: 5px;
 }
 
+mat-list-item {
+    /* background-color: rebeccapurple; */
+    min-height: 49px!important;
+    height: 49px!important;
+}
+
 .users-container {
     padding: 0 .7rem;
 }mat-list-item p {
@@ -39,4 +45,8 @@
     font-size: 16px;
 }mat-divider {
     border-top-color: var(--border-primary-color);
+}
+
+.viewport {
+    height: 400px;
 }

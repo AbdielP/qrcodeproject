@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserlistComponent implements OnInit {
 
+  testArray: Array<number> = [];
+
   constructor() { }
 
   ngOnInit(): void {
+    for (let index = 0; index < 8; index++) {
+      this.testArray.push(index);
+    }
   }
 
 }
