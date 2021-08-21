@@ -26,7 +26,7 @@ import { Component, OnInit } from '@angular/core';
   styles: [`
     mat-toolbar {
       height: var(--navbar-height);
-      background-color: #dddfe0!important;
+      background-color: var(--navbar-background)!important;
       border-bottom: 1px solid var(--border-primary-color)!important;
     }
   `

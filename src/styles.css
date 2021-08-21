@@ -2,6 +2,7 @@
 
 ::ng-deep :root {
   --navbar-height: 35px;
+  --navbar-background: #dddfe0;
   --search-container-height: 90px;
   --border-primary-color: #b7b7b8;
   --font-primary-color: #2a333a;

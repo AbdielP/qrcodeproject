@@ -7,9 +7,10 @@ import { QraccessComponent } from './qraccess/qraccess.component';
 import { QrcargoComponent } from './qrcargo/qrcargo.component';
 import { SearchComponent } from './qraccess/search/search.component';
 import { MaterialsModule } from 'src/app/materials/materials.module';
+import { UserlistComponent } from './qraccess/userlist/userlist.component';
 
 @NgModule({
-  declarations: [QraccessComponent, QrcargoComponent, SearchComponent],
+  declarations: [QraccessComponent, QrcargoComponent, SearchComponent, UserlistComponent],
   imports: [
     CommonModule,
     MaterialsModule,
