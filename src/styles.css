@@ -6,6 +6,7 @@
   --search-container-height: 90px;
   --border-primary-color: #b7b7b8;
   --font-primary-color: #2a333a;
+  --mat-primary-color: #673ab7;
 }
 
 /* :host ::ng-deep .mat-form-field-wrapper{
