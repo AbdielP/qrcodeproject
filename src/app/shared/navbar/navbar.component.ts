@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-navbar',
   template: `
-    <mat-toolbar color="primary">
+    <mat-toolbar>
       <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
         <mat-icon>more_vert</mat-icon>
       </button>
@@ -26,6 +26,8 @@ import { Component, OnInit } from '@angular/core';
   styles: [`
     mat-toolbar {
       height: var(--navbar-height);
+      background-color: #dddfe0!important;
+      border-bottom: 1px solid var(--border-primary-color)!important;
     }
   `
   ]
