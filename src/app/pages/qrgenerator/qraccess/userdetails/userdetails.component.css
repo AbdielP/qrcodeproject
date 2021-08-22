@@ -68,7 +68,6 @@ mat-divider {
 
 .qr-main-container {
     width: 100%;
-    /* height: 100%; */
     /* background-color: sandybrown; */
     box-sizing: border-box;
     padding: 3rem;
@@ -91,11 +90,53 @@ mat-divider {
     margin: 0;
 }.info-container {
     width: 100%;
-    height: 450px;
+    /* height: 450px; */
     box-sizing: border-box;
     padding: 35px;
     /* background-color: teal; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }.access-detail-container {
     display: flex;
     flex-direction: column;
+}
+
+.body-container-qr{
+    width: 450px;
+    display: flex;
+    background-image: url('../../../../../assets/img/QR_base.PNG');
+    /* background-color: gray; */
+    margin-top: 2%;
+    height: 250px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}.container-qr-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #8970a8;
+    width: 55%;
+    height: auto;
+    font-size: 1rem;
+    padding-top: 15px;
+}
+
+.container-qr-img{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10% 0;
+    width: 45%;
+    height: 100%;
+}.container-qr-img img{
+    margin-left: 3%;
+    width: 82%;
+}
+
+.btn-descargar-qr{
+    background-color: #8970a8;
+}.btn-descargar-qr:hover{
+    background-color: #9B8CAE;
 }
