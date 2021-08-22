@@ -140,3 +140,19 @@ mat-divider {
 }.btn-descargar-qr:hover{
     background-color: #9B8CAE;
 }
+
+.text-info {
+    color: var(--text-info)!important;
+}
+
+.text-secondary {
+    color: var(--text-secondary)!important;
+}
+
+.text-success {
+    color: var(--text-success)!important;
+}
+
+.text-warning {
+    color: var(--text-warning)!important;
+}

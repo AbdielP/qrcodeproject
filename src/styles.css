@@ -1,12 +1,19 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap'); */
 
 ::ng-deep :root {
-  --navbar-height: 35px;
   --navbar-background: #dddfe0;
-  --search-container-height: 90px;
   --border-primary-color: #b7b7b8;
-  --font-primary-color: #2a333a;
+  /* --font-primary-color: #2a333a; */
+  --font-primary-color: #424242;
   --mat-primary-color: #673ab7;
+  --mat-accent-color: #ffd740;
+  --mat-warn-color: #f44336;
+  --text-secondary: #727a7e;
+  --text-success: #298A08;
+  --text-warning: #f3b600;
+  --text-info: #0a98d6;
+  --navbar-height: 35px;
+  --search-container-height: 90px;
 }
 
 /* :host ::ng-deep .mat-form-field-wrapper{
