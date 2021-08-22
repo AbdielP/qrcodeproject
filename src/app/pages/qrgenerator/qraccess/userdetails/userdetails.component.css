@@ -92,7 +92,7 @@ mat-divider {
     width: 100%;
     /* height: 450px; */
     box-sizing: border-box;
-    padding: 35px;
+    padding: 15px;
     /* background-color: teal; */
     display: flex;
     flex-direction: column;
@@ -121,6 +121,8 @@ mat-divider {
     height: auto;
     font-size: 1rem;
     padding-top: 55px;
+}.container-qr-info h4 {
+    margin: 2px;
 }
 
 .container-qr-img{
@@ -133,12 +135,6 @@ mat-divider {
 }.container-qr-img img{
     margin-left: 3%;
     width: 82%;
-}
-
-.btn-descargar-qr{
-    background-color: #8970a8;
-}.btn-descargar-qr:hover{
-    background-color: #9B8CAE;
 }
 
 .text-info {
@@ -155,4 +151,8 @@ mat-divider {
 
 .text-warning {
     color: var(--text-warning)!important;
+}
+
+.text-justify {
+    text-align: justify;
 }
