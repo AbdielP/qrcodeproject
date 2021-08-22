@@ -49,5 +49,5 @@ mat-list-item {
 }
 
 .viewport {
-    height: 400px;
+    height: calc(100vh - var(--navbar-height) - var(--search-container-height) - 75px);
 }

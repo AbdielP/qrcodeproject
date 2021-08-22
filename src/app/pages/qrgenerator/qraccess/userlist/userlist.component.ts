@@ -12,7 +12,7 @@ export class UserlistComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    for (let index = 0; index < 8; index++) {
+    for (let index = 0; index < 15; index++) {
       this.testArray.push(index);
     }
   }
