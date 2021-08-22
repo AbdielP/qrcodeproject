@@ -11,5 +11,10 @@ export class QraccessComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  // Recivo del hijo (search.component) el parametro de búsqueda
+  searchParam(param: string): void {
+    // Podría emitirlo al hijo (userlist.component), o realizar la búsqueda en la base de datos aquí?
+    console.log(param);
+  }
 
 }

@@ -1,7 +1,7 @@
 <div class="container">
     <div class="grid">
         <div class="search-container">
-            <app-search></app-search>
+            <app-search (searchValue)="searchParam($event)"></app-search>
             <div class="img-container">
                 <img src="../../../../assets/img/noimage.png" alt="img">
             </div>

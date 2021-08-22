@@ -1,21 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent {
 
   value: string = '';
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  @Output() searchValue = new EventEmitter<String>();
   search(term: string): void {
-    console.log(term);
+    if (term.length > 3) {
+      // Emitiendo parametro de busqueda al padre (qraccess.component)
+      this.searchValue.emit(term);
+    }
   }
 
 }
