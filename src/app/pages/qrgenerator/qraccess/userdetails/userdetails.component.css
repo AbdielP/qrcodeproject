@@ -100,6 +100,9 @@ mat-divider {
 }.access-detail-container {
     display: flex;
     flex-direction: column;
+}.detail {
+    display: flex;
+    justify-content: space-between;
 }
 
 .body-container-qr{
