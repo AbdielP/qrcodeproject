@@ -15,15 +15,15 @@ export class UserlistComponent implements OnInit {
   eventSubscription: Subscription;
   searchArray: Array<Search> = [];
 
-  testArray: Array<number> = [];
+  // testArray: Array<number> = [];
 
   constructor(private accessService: AccessService) { }
 
   ngOnInit(): void {
     this.subscribeEventParam();
-    for (let index = 0; index < 15; index++) {
-      this.testArray.push(index);
-    }
+    // for (let index = 0; index < 15; index++) {
+    //   this.testArray.push(index);
+    // }
   }
 
   // tslint:disable-next-line: use-lifecycle-interface
@@ -35,10 +35,9 @@ export class UserlistComponent implements OnInit {
   subscribeEventParam(): void {
     this.eventSubscription = this.term.subscribe(term => {
       const body = { termino: term };
-      this.accessService.searchAccess(body, 'api/cwpidc/acces/search').subscribe((resp: Search[]) => {
-        console.log(resp);
+      this.accessService.searchAccess(body, 'api/cwpidc/acces/search').subscribe((resp: Array<Search>) => {
         this.searchArray = resp;
-      })
+      });
     })
   }
 
