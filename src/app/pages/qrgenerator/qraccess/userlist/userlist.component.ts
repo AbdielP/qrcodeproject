@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
+import { AccessService } from 'src/app/services/access.service';
 
 @Component({
   selector: 'app-userlist',
@@ -14,7 +15,7 @@ export class UserlistComponent implements OnInit {
 
   testArray: Array<number> = [];
 
-  constructor() { }
+  constructor(private accessService: AccessService) { }
 
   ngOnInit(): void {
     this.subscribeEventParam();
@@ -31,7 +32,10 @@ export class UserlistComponent implements OnInit {
   //Suscribirse al evento enviado desde el padre para escuchar el parameto de busqueda
   subscribeEventParam(): void {
     this.eventSubscription = this.term.subscribe(term => {
-      console.log(term);
+      const body = { termino: term };
+      this.accessService.post(body, 'api/cwpidc/acces/search').subscribe(resp => {
+        console.log(resp);
+      })
     })
   }
 

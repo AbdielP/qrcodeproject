@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { QrgeneratorModule } from './pages/qrgenerator/qrgenerator.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
@@ -16,7 +17,8 @@ import { AppComponent } from './app.component';
     QrgeneratorModule,
     AppRoutingModule,
     SharedModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
