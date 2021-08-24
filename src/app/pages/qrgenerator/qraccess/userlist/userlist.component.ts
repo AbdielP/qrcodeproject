@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { AccessService } from 'src/app/services/access.service';
+import { Search } from 'src/app/interfaces/search';
 
 @Component({
   selector: 'app-userlist',
@@ -12,6 +13,7 @@ export class UserlistComponent implements OnInit {
   // Variables para recibir el termino desde el padre
   @Input() term: Observable<string>;
   eventSubscription: Subscription;
+  searchArray: Array<Search> = [];
 
   testArray: Array<number> = [];
 
@@ -33,8 +35,9 @@ export class UserlistComponent implements OnInit {
   subscribeEventParam(): void {
     this.eventSubscription = this.term.subscribe(term => {
       const body = { termino: term };
-      this.accessService.post(body, 'api/cwpidc/acces/search').subscribe(resp => {
+      this.accessService.searchAccess(body, 'api/cwpidc/acces/search').subscribe((resp: Search[]) => {
         console.log(resp);
+        this.searchArray = resp;
       })
     })
   }
