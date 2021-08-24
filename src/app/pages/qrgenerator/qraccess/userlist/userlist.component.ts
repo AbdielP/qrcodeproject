@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { AccessService } from 'src/app/services/access.service';
 import { Search } from 'src/app/interfaces/search';
@@ -15,15 +15,12 @@ export class UserlistComponent implements OnInit {
   eventSubscription: Subscription;
   searchArray: Array<Search> = [];
 
-  // testArray: Array<number> = [];
+  @Output() idseguridad = new EventEmitter<number>();
 
   constructor(private accessService: AccessService) { }
 
   ngOnInit(): void {
     this.subscribeEventParam();
-    // for (let index = 0; index < 15; index++) {
-    //   this.testArray.push(index);
-    // }
   }
 
   // tslint:disable-next-line: use-lifecycle-interface
@@ -33,7 +30,7 @@ export class UserlistComponent implements OnInit {
 
   //Suscribirse al evento enviado desde el padre para escuchar el parameto de busqueda
   subscribeEventParam(): void {
-    this.eventSubscription = this.term.subscribe(term => {
+    this.eventSubscription = this.term.subscribe((term: string) => {
       const body = { termino: term };
       this.accessService.searchAccess(body, 'api/cwpidc/acces/search').subscribe((resp: Array<Search>) => {
         this.searchArray = resp;
@@ -42,7 +39,8 @@ export class UserlistComponent implements OnInit {
   }
 
   onClick(id: number):void {
-    console.log(id);
+    // Emitiendo idseguridad del acceso clieckeado en la lista hacia el componente padre (qraccess.component)
+    this.idseguridad.emit(id);
   }
 
 }

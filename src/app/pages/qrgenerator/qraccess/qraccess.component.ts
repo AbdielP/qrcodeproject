@@ -8,12 +8,19 @@ import { Subject } from 'rxjs';
 })
 export class QraccessComponent {
 
-  eventParam: Subject<string> = new Subject<string>();
+  eventParam: Subject<String> = new Subject<String>();
+  eventIdsec: Subject<Number> = new Subject<Number>();
 
-  // Recivo del hijo (search.component) el parametro de búsqueda
+  // Recive del hijo (search.component) el parametro de búsqueda
   searchParam(param: string): void {
     // Emite el parametro de busqueda al componente hijo -> (userlist.component)
     this.eventParam.next(param);
+  }
+
+  // Recive del hijo (user.list) el idseguridad para mostrar los detalles del acceso
+  getAccessId(idseguridad: number): void {
+    // Emite el idseguridad al componente hijo -> (userdetails.component)
+    this.eventIdsec.next(idseguridad);
   }
 
 }

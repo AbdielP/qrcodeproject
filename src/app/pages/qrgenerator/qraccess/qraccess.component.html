@@ -7,10 +7,10 @@
             </div>
         </div>
         <div class="list-container">
-            <app-userlist [term]="eventParam.asObservable()"></app-userlist>
+            <app-userlist [term]="eventParam.asObservable()" (idseguridad)="getAccessId($event)"></app-userlist>
         </div>
         <div class="info-container">
-            <app-userdetails></app-userdetails>
+            <app-userdetails [idseg]="eventIdsec.asObservable()"></app-userdetails>
         </div>
     </div>
 </div>

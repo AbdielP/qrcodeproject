@@ -12,9 +12,8 @@ import {MatDividerModule} from '@angular/material/divider';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {MatTooltipModule} from '@angular/material/tooltip';
 
-
-const modules = [MatToolbarModule, MatMenuModule, MatIconModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatListModule, MatDividerModule, ScrollingModule,
-                  MatTooltipModule]
+const modules = [MatToolbarModule, MatMenuModule, MatIconModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule, 
+  MatListModule, MatDividerModule, ScrollingModule, MatTooltipModule]
 
 @NgModule({
   declarations: [],
