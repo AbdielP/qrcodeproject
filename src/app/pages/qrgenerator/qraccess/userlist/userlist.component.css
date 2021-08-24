@@ -34,7 +34,7 @@ mat-list-item {
     font-size: .85rem!important;
     display: flex;
     /* background-color: green; */
-    width: 100%;
+    width: 33.3%;
     justify-content: space-between;
     margin: 0;
 }.status {
@@ -50,4 +50,12 @@ mat-list-item {
 
 .viewport {
     height: calc(100vh - var(--navbar-height) - var(--search-container-height) - 75px);
+}
+
+.text-warning {
+    color: var(--text-warning)
+}
+
+.text-success {
+    color: var(--text-success)
 }

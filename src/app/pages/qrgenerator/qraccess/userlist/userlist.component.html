@@ -8,10 +8,10 @@
             <cdk-virtual-scroll-viewport itemSize="50" class="viewport">
                 <ng-container *cdkVirtualFor="let acceso of searchArray">
                     <mat-list-item>
-                        <p class="mat-body-1">{{acceso.cedula_visitante}}</p>
+                        <p class="mat-body-1">{{acceso.cedula_visitante | uppercase}}</p>
                         <p class="mat-body-1">{{acceso.empleado_visitante}}</p>
-                        <p *ngIf="acceso.estado==='solicitado'" class="mat-body-2 status">{{acceso.estado}} <mat-icon aria-hidden="false" aria-label="Example home icon">pending_actions</mat-icon></p>
-                        <p *ngIf="acceso.estado==='aprobado'" class="mat-body-2 status">{{acceso.estado}} <mat-icon aria-hidden="false" aria-label="Example home icon">check_circle_outline</mat-icon></p>
+                        <p *ngIf="acceso.estado==='solicitado'" class="mat-body-2 status">{{acceso.estado | titlecase}} <mat-icon class="text-warning" aria-hidden="false" aria-label="Example home icon">schedule</mat-icon></p>
+                        <p *ngIf="acceso.estado==='aprobado'" class="mat-body-2 status">{{acceso.estado | titlecase}} <mat-icon class="text-success" aria-hidden="false" aria-label="Example home icon">check_circle_outline</mat-icon></p>
                     </mat-list-item>
                     <mat-divider></mat-divider>
                 </ng-container>
