@@ -1,20 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-qraccess',
   templateUrl: './qraccess.component.html',
   styleUrls: ['./qraccess.component.css']
 })
-export class QraccessComponent implements OnInit {
+export class QraccessComponent {
 
-  constructor() { }
+  eventParam: Subject<string> = new Subject<string>();
 
-  ngOnInit(): void {
-  }
   // Recivo del hijo (search.component) el parametro de búsqueda
   searchParam(param: string): void {
-    // Podría emitirlo al hijo (userlist.component), o realizar la búsqueda en la base de datos aquí?
-    console.log(param);
+    // Emite el parametro de busqueda al componente hijo -> (userlist.component)
+    this.eventParam.next(param);
   }
 
 }

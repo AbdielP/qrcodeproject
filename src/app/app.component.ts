@@ -8,3 +8,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'qrcodes';
 }
+
+// https://levelup.gitconnected.com/5-ways-to-share-data-between-angular-components-d656a7eb7f96

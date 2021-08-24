@@ -7,7 +7,7 @@
             </div>
         </div>
         <div class="list-container">
-            <app-userlist></app-userlist>
+            <app-userlist [term]="eventParam.asObservable()"></app-userlist>
         </div>
         <div class="info-container">
             <app-userdetails></app-userdetails>
