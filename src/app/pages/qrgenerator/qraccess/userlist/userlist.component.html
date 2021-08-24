@@ -1,13 +1,14 @@
 <div class="main-container">
     <div class="title-container">
-        <h2 class="titulo">Listado de personal <mat-icon aria-hidden="false" aria-label="Example home icon">fact_check</mat-icon></h2>
+        <h2 class="titulo">Listado de personal</h2>
+        <!-- <mat-icon aria-hidden="false" aria-label="Example home icon">fact_check</mat-icon> -->
         <small><i>Listado de personal con acceso tramitado a los IDC.</i></small>
     </div>
     <div class="users-container">
         <mat-list>
             <cdk-virtual-scroll-viewport itemSize="50" class="viewport">
                 <ng-container *cdkVirtualFor="let acceso of searchArray">
-                    <mat-list-item>
+                    <mat-list-item class="bro" (click)="onClick(acceso.idseguridad)">
                         <p class="mat-body-1">{{acceso.cedula_visitante | uppercase}}</p>
                         <p class="mat-body-1">{{acceso.empleado_visitante}}</p>
                         <p *ngIf="acceso.estado==='solicitado'" class="mat-body-2 status">{{acceso.estado | titlecase}} <mat-icon class="text-warning" aria-hidden="false" aria-label="Example home icon">schedule</mat-icon></p>

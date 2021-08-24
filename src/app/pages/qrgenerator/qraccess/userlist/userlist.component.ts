@@ -41,4 +41,8 @@ export class UserlistComponent implements OnInit {
     })
   }
 
+  onClick(id: number):void {
+    console.log(id);
+  }
+
 }

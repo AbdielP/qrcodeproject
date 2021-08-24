@@ -26,6 +26,11 @@ mat-list-item {
     /* background-color: rebeccapurple; */
     min-height: 49px!important;
     height: 49px!important;
+    cursor: pointer;
+}
+
+.bro:hover {
+    background-color: #dadada;
 }
 
 .users-container {
