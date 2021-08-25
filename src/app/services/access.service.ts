@@ -14,18 +14,22 @@ export class AccessService {
 
   constructor(private http: HttpClient) { }
 
-  searchAccess(body: object, endpoint: string): Observable<Search[]> {
-    return this.http.post<object>(`${this.SERVER_URL}/${endpoint}`, body)
+  searchAccess(body: object): Observable<Search[]> {
+    return this.http.post<object>(`${this.SERVER_URL}/api/cwpidc/acces/search`, body)
     .pipe(map((resp: Search) => {
       return resp['personal'];
-    }))
+    }),(catchError(err => [
+      console.log(err)
+    ])))
   }
 
-  // searchAccess(body: object, endpoint: string): Observable<Search[]> {
-  //   return this.http.post<Search[]>(`${this.SERVER_URL}/${endpoint}`, body)
-    // .pipe(retry(1),
-    // catchError((error: HttpErrorResponse) => {
-    //   console.log(error);
-    // }))
-  // }
+  detailAccess(body: object): Observable<any> {
+    return this.http.post<object>(`${this.SERVER_URL}/api/cwpidc/acces/details`, body)
+    .pipe(map(resp => {
+      console.log(resp)
+    }),(catchError(err => [
+      console.log(err)
+    ])))
+  }
+  // .pipe(retry(1) parece útil...
 }

@@ -32,7 +32,7 @@ export class UserlistComponent implements OnInit {
   subscribeEventParam(): void {
     this.eventSubscription = this.term.subscribe((term: string) => {
       const body = { termino: term };
-      this.accessService.searchAccess(body, 'api/cwpidc/acces/search').subscribe((resp: Array<Search>) => {
+      this.accessService.searchAccess(body).subscribe((resp: Array<Search>) => {
         this.searchArray = resp;
       });
     })

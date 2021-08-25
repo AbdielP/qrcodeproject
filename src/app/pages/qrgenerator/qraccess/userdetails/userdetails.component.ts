@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
+import { AccessService } from 'src/app/services/access.service';
 
 @Component({
   selector: 'app-userdetails',
@@ -12,7 +13,7 @@ export class UserdetailsComponent implements OnInit {
   @Input() idseg: Observable<number>;
   eventSubscription: Subscription;
 
-  constructor() { }
+  constructor(private accessService: AccessService) { }
 
   ngOnInit(): void {
     this.subscribeEventIdsec();
@@ -25,7 +26,10 @@ export class UserdetailsComponent implements OnInit {
 
   subscribeEventIdsec(): void {
     this.eventSubscription = this.idseg.subscribe((idseguridad: number) => {
-      console.log(idseguridad);
+      const body = { idseguridad: idseguridad }
+      this.accessService.detailAccess(body).subscribe(resp => {
+        // console.log(resp);
+      })
     })
   }
 
