@@ -3,6 +3,7 @@ import { Observable, Subscription } from 'rxjs';
 import { AccessDetail } from 'src/app/interfaces/access-detail';
 import { Foto } from 'src/app/interfaces/foto';
 import { AccessService } from 'src/app/services/access.service';
+import QRCode from 'qrcode';
 
 @Component({
   selector: 'app-userdetails',
@@ -17,6 +18,7 @@ export class UserdetailsComponent implements OnInit {
   
   @Output() foto = new EventEmitter<Foto>();
   detalleAcceso: AccessDetail;
+  qrcode: string;
 
   constructor(private accessService: AccessService) { }
 
@@ -36,8 +38,21 @@ export class UserdetailsComponent implements OnInit {
         this.detalleAcceso = resp.detalleAcceso;
         // Emite la foto de perfil de acceso al componente padre qraccess.component
         this.foto.emit(resp.foto);
+        this.generarQR(this.detalleAcceso.cedula_visitante)
       })
     })
   }
+
+  generarQR(info: string): void {
+    QRCode.toDataURL(`http://cwp-idc-sca/seguridad/agentsec/reg_visita_in.php?cedula_visitante=${info}&button=Buscar`)
+    .then((url: string) => {
+      this.qrcode = url;
+      // console.log(this.qrcode);
+    })
+    .catch(err => {
+      console.error(err);
+    });
+  }
+
 
 }

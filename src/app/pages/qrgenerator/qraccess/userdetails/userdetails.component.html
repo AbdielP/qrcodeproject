@@ -79,7 +79,7 @@
                         <h4>{{detalleAcceso.cedula_visitante | uppercase}}</h4>
                     </div>
                     <div class="container-qr-img">
-                        <img src="" alt="QR Code">
+                        <img *ngIf="qrcode" src="{{qrcode}}" alt="QR Code">
                     </div> 
                 </div>
             </div>
