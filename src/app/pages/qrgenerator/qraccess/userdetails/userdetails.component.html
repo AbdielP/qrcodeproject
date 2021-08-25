@@ -59,7 +59,8 @@
             <div class="qr-info-title">
                 <h2>{{detalleAcceso.nombre_visitante | titlecase}}</h2>
                 <!-- <mat-icon aria-hidden="false" aria-label="Example home icon">assignment_ind</mat-icon> -->
-                <button mat-mini-fab color="accent" aria-label="Example icon button with a filter list icon"
+                <button (click)="downloadQR(detalleAcceso.nombre_visitante, detalleAcceso.cedula_visitante)"
+                    mat-mini-fab color="accent" aria-label="Example icon button with a filter list icon"
                     matTooltip="Descargar QR">
                     <mat-icon>file_download</mat-icon>
                 </button>
@@ -80,7 +81,12 @@
                     </div>
                     <div class="container-qr-img">
                         <img *ngIf="qrcode" src="{{qrcode}}" alt="QR Code">
-                    </div> 
+                    </div>
+                </div>
+                <!-- ESTO ES PARA LA DESCARGA DEL QR -->
+                <div [hidden]="true" id="download">
+                    <img #canvas>
+                    <a #downloadLink></a>
                 </div>
             </div>
         </div>

@@ -1,9 +1,10 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { AccessDetail } from 'src/app/interfaces/access-detail';
 import { Foto } from 'src/app/interfaces/foto';
 import { AccessService } from 'src/app/services/access.service';
 import QRCode from 'qrcode';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-userdetails',
@@ -19,6 +20,10 @@ export class UserdetailsComponent implements OnInit {
   @Output() foto = new EventEmitter<Foto>();
   detalleAcceso: AccessDetail;
   qrcode: string;
+
+  @ViewChild('screen') screenx: ElementRef;
+  @ViewChild('canvas') canvasx: ElementRef;
+  @ViewChild('downloadLink') downloadLinkx: ElementRef;
 
   constructor(private accessService: AccessService) { }
 
@@ -54,5 +59,13 @@ export class UserdetailsComponent implements OnInit {
     });
   }
 
+  downloadQR(nombre: string, cedula: string): void {
+    html2canvas(this.screenx.nativeElement).then(canvas => {
+      this.canvasx.nativeElement.src = canvas.toDataURL();
+      this.downloadLinkx.nativeElement.href = canvas.toDataURL('image/png');
+      this.downloadLinkx.nativeElement.download = `QR_${nombre}_${cedula}.png`;
+      this.downloadLinkx.nativeElement.click();
+    });
+  }
 
 }
