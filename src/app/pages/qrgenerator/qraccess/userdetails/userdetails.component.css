@@ -136,6 +136,7 @@ mat-divider {
     width: 45%;
     height: 100%;
 }.container-qr-img img{
+    margin-bottom: 37%;
     margin-left: 3%;
     width: 82%;
 }
