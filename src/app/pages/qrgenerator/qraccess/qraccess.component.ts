@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Subject } from 'rxjs';
+import { Foto } from 'src/app/interfaces/foto';
 
 @Component({
   selector: 'app-qraccess',
@@ -10,6 +11,7 @@ export class QraccessComponent {
 
   eventParam: Subject<String> = new Subject<String>();
   eventIdsec: Subject<Number> = new Subject<Number>();
+  eventFoto: Subject<Foto> = new Subject<Foto>();
 
   // Recive del hijo (search.component) el parametro de búsqueda
   searchParam(param: string): void {
@@ -21,6 +23,11 @@ export class QraccessComponent {
   getAccessId(idseguridad: number): void {
     // Emite el idseguridad al componente hijo -> (userdetails.component)
     this.eventIdsec.next(idseguridad);
+  }
+
+  // Recibe la foto del hijo (user.detail) para pasarlo a search component
+  getFoto(foto: Foto): void {
+    this.eventFoto.next(foto);
   }
 
 }

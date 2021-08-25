@@ -1,7 +1,7 @@
 <div class="container">
     <div class="grid">
         <div class="search-container">
-            <app-search (searchValue)="searchParam($event)"></app-search>
+            <app-search [foto]="eventFoto.asObservable()" (searchValue)="searchParam($event)"></app-search>
             <div class="img-container">
                 <img src="../../../../assets/img/nobg.png" alt="img">
             </div>
@@ -10,7 +10,7 @@
             <app-userlist [term]="eventParam.asObservable()" (idseguridad)="getAccessId($event)"></app-userlist>
         </div>
         <div class="info-container">
-            <app-userdetails [idseg]="eventIdsec.asObservable()"></app-userdetails>
+            <app-userdetails [idseg]="eventIdsec.asObservable()" (foto)="getFoto($event)"></app-userdetails>
         </div>
     </div>
 </div>

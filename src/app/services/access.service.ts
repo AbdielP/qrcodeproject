@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, catchError, retry } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { Search } from 'src/app/interfaces/search';
 import { environment } from 'src/environments/environment.prod';
+import { Search } from 'src/app/interfaces/search';
 
 @Injectable({
   providedIn: 'root'
@@ -20,16 +20,14 @@ export class AccessService {
       return resp['personal'];
     }),(catchError(err => [
       console.log(err)
-    ])))
+    ])));
   }
 
-  detailAccess(body: object): Observable<any> {
+  detailAccess(body: object): Observable<any> { //Cagué, aquí observables de 2 tipos, AccesDetail y Foto
     return this.http.post<object>(`${this.SERVER_URL}/api/cwpidc/acces/details`, body)
-    .pipe(map(resp => {
-      console.log(resp)
-    }),(catchError(err => [
+    .pipe((catchError(err => [
       console.log(err)
-    ])))
+    ])));
   }
   // .pipe(retry(1) parece útil...
 }
