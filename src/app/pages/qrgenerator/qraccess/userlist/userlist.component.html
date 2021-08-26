@@ -5,6 +5,10 @@
         <small><i>Listado de personal con acceso tramitado a los IDC.</i></small>
     </div>
     <div class="users-container">
+        <div *ngIf="showSpinner" class="spinner-container">
+            <mat-spinner *ngIf="showSpinner" color="primary"></mat-spinner>
+        </div>
+
         <mat-list>
             <cdk-virtual-scroll-viewport itemSize="50" class="viewport">
                 <ng-container *cdkVirtualFor="let acceso of searchArray">

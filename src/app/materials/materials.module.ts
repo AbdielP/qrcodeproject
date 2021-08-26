@@ -11,9 +11,11 @@ import {MatListModule} from '@angular/material/list';
 import {MatDividerModule} from '@angular/material/divider';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 const modules = [MatToolbarModule, MatMenuModule, MatIconModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule, 
-  MatListModule, MatDividerModule, ScrollingModule, MatTooltipModule]
+  MatListModule, MatDividerModule, ScrollingModule, MatTooltipModule, MatProgressSpinnerModule]
 
 @NgModule({
   declarations: [],

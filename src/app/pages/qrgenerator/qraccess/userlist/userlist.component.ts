@@ -14,10 +14,13 @@ export class UserlistComponent implements OnInit {
   @Input() term: Observable<string>;
   eventSubscription: Subscription;
   searchArray: Array<Search> = [];
+  showSpinner: boolean;
 
   @Output() idseguridad = new EventEmitter<number>();
 
-  constructor(private accessService: AccessService) { }
+  constructor(private accessService: AccessService) { 
+    this.showSpinner = false;
+  }
 
   ngOnInit(): void {
     this.subscribeEventParam();
@@ -31,9 +34,11 @@ export class UserlistComponent implements OnInit {
   //Suscribirse al evento enviado desde el padre para escuchar el parameto de busqueda
   subscribeEventParam(): void {
     this.eventSubscription = this.term.subscribe((term: string) => {
+      this.showSpinner = true;
       const body = { termino: term };
       this.accessService.searchAccess(body).subscribe((resp: Array<Search>) => {
         this.searchArray = resp;
+        this.showSpinner = false;
       });
     })
   }

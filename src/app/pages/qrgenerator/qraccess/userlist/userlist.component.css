@@ -51,6 +51,13 @@ mat-list-item {
     font-size: 16px;
 }mat-divider {
     border-top-color: var(--border-primary-color);
+}.spinner-container {
+    width: 100%;
+    height: calc(100vh - var(--navbar-height) - var(--search-container-height) - 75px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: rosybrown; */
 }
 
 .viewport {
