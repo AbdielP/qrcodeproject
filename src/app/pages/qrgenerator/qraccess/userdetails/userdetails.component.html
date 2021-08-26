@@ -9,6 +9,53 @@
     <div *ngIf="showSpinner" class="spinner-container">
         <mat-spinner *ngIf="showSpinner" color="primary"></mat-spinner>
     </div>
+
+    <div class="container-list">
+        <!-- COL IZQ -->
+        <mat-list>
+            <div mat-subheader>Columna 1</div>
+            <mat-list-item>
+                <mat-icon mat-list-icon>folder</mat-icon>
+                <div mat-line>Info</div>
+                <div mat-line> Jan 1, 2016 </div>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-icon mat-list-icon>folder</mat-icon>
+                <div mat-line>Info</div>
+                <div mat-line> Jan 1, 2016 </div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <div mat-subheader>Expiración</div>
+            <mat-list-item>
+                <mat-icon mat-list-icon>folder</mat-icon>
+                <div mat-line>Este acceso expira en 69 días</div>
+                <div mat-line> Jan 1, 2016 </div>
+            </mat-list-item>
+        </mat-list>
+        <!-- COL DER -->
+        <mat-list>
+            <div mat-subheader>Columna 2</div>
+            <mat-list-item>
+                <mat-icon mat-list-icon>folder</mat-icon>
+                <div mat-line>Info</div>
+                <div mat-line> Jan 1, 2016 </div>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-icon mat-list-icon>folder</mat-icon>
+                <div mat-line>Info</div>
+                <div mat-line> Jan 1, 2016 </div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <div mat-subheader>Expiración</div>
+            <mat-list-item>
+                <mat-icon mat-list-icon>folder</mat-icon>
+                <div mat-line>Este acceso expira en 69 días</div>
+                <div mat-line> Jan 1, 2016 </div>
+            </mat-list-item>
+        </mat-list>
+    </div>
+
+    
     <!-- <div class="user-info-container">
         
         <div class="container-row">
@@ -73,8 +120,10 @@
                 <div class="access-detail-container">
                     <div class="detail">
                         <p class="mat-subheading-1 text-secondary">Detalle del acceso</p>
-                        <a *ngIf="detalleAcceso.gerencia != ''" href="{{detalleAcceso.gerencia}}" class="text-info" target="_blank">Ver formulario de acceso</a>
-                        <p *ngIf="detalleAcceso.gerencia === ''">No se ha encontrado formulario de acceso para este permiso.</p>
+                        <a *ngIf="detalleAcceso.gerencia != ''" href="{{detalleAcceso.gerencia}}" class="text-info"
+                            target="_blank">Ver formulario de acceso</a>
+                        <p *ngIf="detalleAcceso.gerencia === ''">No se ha encontrado formulario de acceso para este
+                            permiso.</p>
                     </div>
                     <p class="text-justify">{{detalleAcceso.notas | titlecase}}</p>
                 </div>

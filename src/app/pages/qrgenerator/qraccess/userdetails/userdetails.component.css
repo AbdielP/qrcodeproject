@@ -22,6 +22,14 @@
     color: var(--border-primary-color)
 }
 
+.container-list {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+} mat-list {
+    width: 50%;
+}
+
 .spinner-container {
     width: 100%;
     height: calc(100vh - var(--navbar-height) - var(--search-container-height) - 75px);
