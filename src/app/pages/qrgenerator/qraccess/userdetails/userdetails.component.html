@@ -1,11 +1,4 @@
 <div class="container">
-    <div class="title-container">
-        <p class="mat-subheading-1">Detalle de acceso</p>
-        <mat-icon aria-hidden="false" aria-label="Example home icon">account_box</mat-icon>
-        <mat-icon aria-hidden="false" aria-label="Example home icon">qr_code_2</mat-icon>
-    </div>
-    <mat-divider></mat-divider>
-
     <div *ngIf="showSpinner" class="spinner-container">
         <mat-spinner *ngIf="showSpinner" color="primary"></mat-spinner>
     </div>
@@ -13,7 +6,7 @@
     <div *ngIf="!showSpinner && detalleAcceso" class="container-list">
         <!-- COL IZQ -->
         <mat-list >
-            <div mat-subheader>Información personal</div>
+            <div mat-subheader>Detalles del acceso</div>
             <mat-list-item>
                 <mat-icon mat-list-icon>face</mat-icon>
                 <div mat-line>{{detalleAcceso.nombre_visitante | titlecase}}</div>
@@ -29,8 +22,9 @@
             <mat-list-item>
                 <mat-icon mat-list-icon>event_available</mat-icon>
                 <div mat-line>{{detalleAcceso.fecha_solicitud}} </div>
-                <div mat-line>Vigente hace 69 días.</div>
+                <!-- <div mat-line>Vigente hace 69 días.</div> -->
             </mat-list-item>
+           
         </mat-list>
         <!-- COL DER -->
         <mat-list>
@@ -56,49 +50,32 @@
             <mat-list-item>
                 <mat-icon mat-list-icon>event_busy</mat-icon>
                 <div mat-line>{{detalleAcceso.fecha_expiracion}}</div>
-                <div mat-line><small>Expira en 69 días.</small></div>
+                <!-- <div mat-line><small>Expira en 69 días.</small></div> -->
+            </mat-list-item>
+            
+        </mat-list>
+        <!-- lista del QR? -->
+        <mat-list class="lista-qr">
+            <mat-list-item class="list-item-qr">
+                <div mat-line>
+                    <!-- Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit aperiam delectus incidunt doloremque repellendus at recusandae architecto, totam atque facilis odio esse itaque et ducimus. -->
+                    <div class="body-container-qr" #screen (click)="downloadQR(detalleAcceso.nombre_visitante, detalleAcceso.cedula_visitante)">
+                        <div class="container-qr-info">
+                            <h4>Bienvenido</h4>
+                            <h4>{{detalleAcceso.nombre_visitante | titlecase}}</h4>
+                            <h4>{{detalleAcceso.cedula_visitante | uppercase}}</h4>
+                        </div>
+                        <div *ngIf="qrcode != ''" class="container-qr-img">
+                            <img *ngIf="qrcode" src="{{qrcode}}" alt="QR Code">
+                        </div>
+                    </div>
+                    <div [hidden]="true" id="download">
+                        <img #canvas>
+                        <a #downloadLink></a>
+                    </div>
+                </div>
+               
             </mat-list-item>
         </mat-list>
-    </div>
-
-    <div *ngIf="!showSpinner" class="qr-main-container">
-        <div *ngIf="detalleAcceso" class="qr-info-container">
-            <div class="qr-info-title">
-                <h2>{{detalleAcceso.nombre_visitante | titlecase}}</h2>
-                <!-- <mat-icon aria-hidden="false" aria-label="Example home icon">assignment_ind</mat-icon> -->
-                <button (click)="downloadQR(detalleAcceso.nombre_visitante, detalleAcceso.cedula_visitante)"
-                    mat-mini-fab color="accent" aria-label="Example icon button with a filter list icon"
-                    matTooltip="Descargar QR">
-                    <mat-icon>file_download</mat-icon>
-                </button>
-            </div>
-            <div class="info-container">
-                <div class="access-detail-container">
-                    <div class="detail">
-                        <p class="mat-subheading-1 text-secondary">Notas del acceso</p>
-                        <a *ngIf="detalleAcceso.gerencia != ''" href="{{detalleAcceso.gerencia}}" class="text-info"
-                            target="_blank">Ver formulario de acceso</a>
-                        <p *ngIf="detalleAcceso.gerencia === ''">No se ha encontrado formulario de acceso para este
-                            permiso.</p>
-                    </div>
-                    <p class="text-justify">{{detalleAcceso.notas | titlecase}}</p>
-                </div>
-                <div class="body-container-qr" #screen>
-                    <div class="container-qr-info">
-                        <h4>Bienvenido</h4>
-                        <h4>{{detalleAcceso.nombre_visitante | titlecase}}</h4>
-                        <h4>{{detalleAcceso.cedula_visitante | uppercase}}</h4>
-                    </div>
-                    <div *ngIf="qrcode != ''" class="container-qr-img">
-                        <img *ngIf="qrcode" src="{{qrcode}}" alt="QR Code">
-                    </div>
-                </div>
-                <!-- ESTO ES PARA LA DESCARGA DEL QR -->
-                <div [hidden]="true" id="download">
-                    <img #canvas>
-                    <a #downloadLink></a>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
