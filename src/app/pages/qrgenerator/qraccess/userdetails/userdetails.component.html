@@ -13,97 +13,53 @@
     <div class="container-list">
         <!-- COL IZQ -->
         <mat-list>
-            <div mat-subheader>Columna 1</div>
+            <div mat-subheader>Información personal</div>
             <mat-list-item>
-                <mat-icon mat-list-icon>folder</mat-icon>
-                <div mat-line>Info</div>
-                <div mat-line> Jan 1, 2016 </div>
+                <mat-icon mat-list-icon>face</mat-icon>
+                <div mat-line>Abdiel Pinzón</div>
+                <div mat-line><small>Empleado de IDCPP</small> </div>
             </mat-list-item>
             <mat-list-item>
-                <mat-icon mat-list-icon>folder</mat-icon>
-                <div mat-line>Info</div>
-                <div mat-line> Jan 1, 2016 </div>
+                <mat-icon mat-list-icon>vpn_key</mat-icon>
+                <div mat-line>Acceso para</div>
+                <div class="text-info" mat-line>MEF</div>
             </mat-list-item>
             <mat-divider></mat-divider>
-            <div mat-subheader>Expiración</div>
+            <div mat-subheader>Solicitado</div>
             <mat-list-item>
-                <mat-icon mat-list-icon>folder</mat-icon>
-                <div mat-line>Este acceso expira en 69 días</div>
-                <div mat-line> Jan 1, 2016 </div>
+                <mat-icon mat-list-icon>event_available</mat-icon>
+                <div mat-line>Jan 1, 2016 </div>
+                <div mat-line><small>Vigente hace 69 días.</small></div>
             </mat-list-item>
         </mat-list>
         <!-- COL DER -->
         <mat-list>
-            <div mat-subheader>Columna 2</div>
+            <!-- <div class="text-success" mat-subheader>Acceso probado
+                <mat-icon mat-list-icon>how_to_reg</mat-icon>
+            </div> -->
+            <div class="text-warning" mat-subheader>
+                <mat-icon mat-list-icon>watch_later</mat-icon>
+                Acceso en trámite
+            </div>
             <mat-list-item>
-                <mat-icon mat-list-icon>folder</mat-icon>
-                <div mat-line>Info</div>
-                <div mat-line> Jan 1, 2016 </div>
+                <mat-icon mat-list-icon>badge</mat-icon>
+                <div mat-line>Cédula o pasporte</div>
+                <div mat-line>1-722-2319 </div>
             </mat-list-item>
             <mat-list-item>
-                <mat-icon mat-list-icon>folder</mat-icon>
-                <div mat-line>Info</div>
-                <div mat-line> Jan 1, 2016 </div>
+                <mat-icon mat-list-icon>dns</mat-icon>
+                <div mat-line>Datacenter</div>
+                <div class="text-info" mat-line>BAL</div>
             </mat-list-item>
             <mat-divider></mat-divider>
             <div mat-subheader>Expiración</div>
             <mat-list-item>
-                <mat-icon mat-list-icon>folder</mat-icon>
-                <div mat-line>Este acceso expira en 69 días</div>
-                <div mat-line> Jan 1, 2016 </div>
+                <mat-icon mat-list-icon>event_busy</mat-icon>
+                <div mat-line>Jan 1, 2016</div>
+                <div mat-line><small>Expira en 69 días.</small></div>
             </mat-list-item>
         </mat-list>
     </div>
-
-    
-    <!-- <div class="user-info-container">
-        
-        <div class="container-row">
-            <div class="info-row">
-                <small class="">Cédula/pasaporte:</small>
-                <p class="mat-body-2">PE-6969-6969</p>
-            </div>
-            <div class="info-row ">
-                <small class="">Estado:</small>
-                <p class="mat-body-2 text-success">Aprobado</p>
-                <p class="mat-body-2 text-warning">Pendiente</p>
-                <mat-icon class="text-success" aria-hidden="false" aria-label="Example home icon">check_circle_outline</mat-icon>
-                <mat-icon class="text-warning" aria-hidden="false" aria-label="Example home icon">report_problem</mat-icon>
-            </div>
-        </div>
-        <div class="container-row">
-            <div class="info-row">
-                <small class="">Acceso para:</small>
-                <p class="mat-body-2">RATARED</p>
-            </div>
-            <div class="info-row ">
-                <small class="">Empresa visitante:</small>
-                <p class="mat-caption">Povider Nerd</p>
-            </div>
-        </div>
-
-        <div class="container-row">
-            <div class="info-row">
-                <small class="">Solicitado:</small>
-                <p class="mat-caption text-info">12/05/2021</p>
-            </div>
-            <div class="info-row ">
-                <small class="">Expiración:</small>
-                <p class="mat-caption text-info">31/05/2021</p>
-            </div>
-        </div>
-
-        <div class="container-row">
-            <div class="info-row">
-                <small class="text-secondary">Vigente hace 69 días.</small>
-            </div>
-            <div class="info-row ">
-                <small class="text-secondary">Expira en 69 días.</small>
-            </div>
-        </div>
-
-    </div>
-    <mat-divider></mat-divider> -->
 
     <div *ngIf="!showSpinner" class="qr-main-container">
         <div *ngIf="detalleAcceso" class="qr-info-container">
@@ -119,7 +75,7 @@
             <div class="info-container">
                 <div class="access-detail-container">
                     <div class="detail">
-                        <p class="mat-subheading-1 text-secondary">Detalle del acceso</p>
+                        <p class="mat-subheading-1 text-secondary">Notas del acceso</p>
                         <a *ngIf="detalleAcceso.gerencia != ''" href="{{detalleAcceso.gerencia}}" class="text-info"
                             target="_blank">Ver formulario de acceso</a>
                         <p *ngIf="detalleAcceso.gerencia === ''">No se ha encontrado formulario de acceso para este

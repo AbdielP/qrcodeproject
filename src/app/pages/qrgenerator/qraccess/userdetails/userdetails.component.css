@@ -38,50 +38,7 @@
     align-items: center;
 }
 
-.user-info-container {
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* align-items: center; */
-    
-    width: 100%;
-    height: auto;
-    box-sizing: border-box;
-    /* margin-top: 5px; */
-    margin: 15px 0;
-    /* background-color: saddlebrown; */
-}.container-row {
-    width: 100%;
-    display: flex;
-    margin-top: 5px;
-    /* align-items: center; */
-    /* justify-content: space-between; */
-    /* background-color: rebeccapurple; */
-}
-.info-row {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    padding: 0;
-    margin: 0;
-}.info-row p {
-    margin: 0;
-    display: flex;
-}.info-row small {
-    /* background-color: blue; */
-    width: 30%;
-    margin-right: 8px;
-}.info-row mat-icon {
-    font-size: 16px;
-    margin-top: 4px;
-    margin-left: 3px;
-}.col-right {
-    justify-content: flex-end;
-}
-
-mat-divider {
-    width: 100%;
-}
-
+ /* CODIGO QR */
 .qr-main-container {
     width: 100%;
     /* background-color: sandybrown; */
@@ -171,6 +128,10 @@ mat-divider {
 
 .text-warning {
     color: var(--text-warning)!important;
+}
+
+.text-danger {
+    color: var(--mat-warn-color)
 }
 
 .text-justify {
