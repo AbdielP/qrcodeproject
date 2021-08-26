@@ -36,10 +36,10 @@ mat-list-item {
 .users-container {
     padding: 0 .7rem;
 }mat-list-item p {
-    font-size: .85rem!important;
+    font-size: .8rem!important;
     display: flex;
     /* background-color: green; */
-    width: 33.3%;
+    width: 20%;
     justify-content: space-between;
     margin: 0;
 }.status {
