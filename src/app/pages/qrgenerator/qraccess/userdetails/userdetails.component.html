@@ -10,52 +10,52 @@
         <mat-spinner *ngIf="showSpinner" color="primary"></mat-spinner>
     </div>
 
-    <div class="container-list">
+    <div *ngIf="!showSpinner && detalleAcceso" class="container-list">
         <!-- COL IZQ -->
-        <mat-list>
+        <mat-list >
             <div mat-subheader>Información personal</div>
             <mat-list-item>
                 <mat-icon mat-list-icon>face</mat-icon>
-                <div mat-line>Abdiel Pinzón</div>
-                <div mat-line><small>Empleado de IDCPP</small> </div>
+                <div mat-line>{{detalleAcceso.nombre_visitante | titlecase}}</div>
+                <div mat-line>Empleado de {{detalleAcceso.empleado_visitante}}</div>
             </mat-list-item>
             <mat-list-item>
                 <mat-icon mat-list-icon>vpn_key</mat-icon>
                 <div mat-line>Acceso para</div>
-                <div class="text-info" mat-line>MEF</div>
+                <div class="text-info" mat-line>{{detalleAcceso.compania_visitante}}</div>
             </mat-list-item>
             <mat-divider></mat-divider>
             <div mat-subheader>Solicitado</div>
             <mat-list-item>
                 <mat-icon mat-list-icon>event_available</mat-icon>
-                <div mat-line>Jan 1, 2016 </div>
-                <div mat-line><small>Vigente hace 69 días.</small></div>
+                <div mat-line>{{detalleAcceso.fecha_solicitud}} </div>
+                <div mat-line>Vigente hace 69 días.</div>
             </mat-list-item>
         </mat-list>
         <!-- COL DER -->
         <mat-list>
-            <!-- <div class="text-success" mat-subheader>Acceso probado
+            <div *ngIf="detalleAcceso.estado==='aprobado'" class="text-success" mat-subheader>Acceso aprobado
                 <mat-icon mat-list-icon>how_to_reg</mat-icon>
-            </div> -->
-            <div class="text-warning" mat-subheader>
+            </div>
+            <div *ngIf="detalleAcceso.estado==='solicitado'" class="text-warning" mat-subheader>
                 <mat-icon mat-list-icon>watch_later</mat-icon>
                 Acceso en trámite
             </div>
             <mat-list-item>
                 <mat-icon mat-list-icon>badge</mat-icon>
                 <div mat-line>Cédula o pasporte</div>
-                <div mat-line>1-722-2319 </div>
+                <div mat-line>{{detalleAcceso.cedula_visitante}}</div>
             </mat-list-item>
             <mat-list-item>
                 <mat-icon mat-list-icon>dns</mat-icon>
                 <div mat-line>Datacenter</div>
-                <div class="text-info" mat-line>BAL</div>
+                <div class="text-info" mat-line>{{detalleAcceso.viceprecidencia_ejecutiva}}</div>
             </mat-list-item>
             <mat-divider></mat-divider>
             <div mat-subheader>Expiración</div>
             <mat-list-item>
                 <mat-icon mat-list-icon>event_busy</mat-icon>
-                <div mat-line>Jan 1, 2016</div>
+                <div mat-line>{{detalleAcceso.fecha_expiracion}}</div>
                 <div mat-line><small>Expira en 69 días.</small></div>
             </mat-list-item>
         </mat-list>
