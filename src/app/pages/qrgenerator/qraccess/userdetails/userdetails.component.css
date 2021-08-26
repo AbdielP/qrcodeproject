@@ -114,6 +114,10 @@
     width: 82%;
 }
 
+mat-divider {
+    width: 100%;
+}
+
 .text-info {
     color: var(--text-info)!important;
 }
