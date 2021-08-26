@@ -5,6 +5,10 @@
         <mat-icon aria-hidden="false" aria-label="Example home icon">qr_code_2</mat-icon>
     </div>
     <mat-divider></mat-divider>
+
+    <div *ngIf="showSpinner" class="spinner-container">
+        <mat-spinner *ngIf="showSpinner" color="primary"></mat-spinner>
+    </div>
     <!-- <div class="user-info-container">
         
         <div class="container-row">
@@ -54,7 +58,7 @@
     </div>
     <mat-divider></mat-divider> -->
 
-    <div class="qr-main-container">
+    <div *ngIf="!showSpinner" class="qr-main-container">
         <div *ngIf="detalleAcceso" class="qr-info-container">
             <div class="qr-info-title">
                 <h2>{{detalleAcceso.nombre_visitante | titlecase}}</h2>
@@ -69,7 +73,8 @@
                 <div class="access-detail-container">
                     <div class="detail">
                         <p class="mat-subheading-1 text-secondary">Detalle del acceso</p>
-                        <a href="{{detalleAcceso.gerencia}}" class="text-info">Ver formulario de acceso</a>
+                        <a *ngIf="detalleAcceso.gerencia != ''" href="{{detalleAcceso.gerencia}}" class="text-info" target="_blank">Ver formulario de acceso</a>
+                        <p *ngIf="detalleAcceso.gerencia === ''">No se ha encontrado formulario de acceso para este permiso.</p>
                     </div>
                     <p class="text-justify">{{detalleAcceso.notas | titlecase}}</p>
                 </div>
@@ -79,7 +84,7 @@
                         <h4>{{detalleAcceso.nombre_visitante | titlecase}}</h4>
                         <h4>{{detalleAcceso.cedula_visitante | uppercase}}</h4>
                     </div>
-                    <div class="container-qr-img">
+                    <div *ngIf="qrcode != ''" class="container-qr-img">
                         <img *ngIf="qrcode" src="{{qrcode}}" alt="QR Code">
                     </div>
                 </div>

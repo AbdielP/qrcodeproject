@@ -19,11 +19,13 @@ export class UserdetailsComponent implements OnInit {
   
   @Output() foto = new EventEmitter<Foto>();
   detalleAcceso: AccessDetail;
-  qrcode: string;
+  qrcode: string = '';
 
   @ViewChild('screen') screenx: ElementRef;
   @ViewChild('canvas') canvasx: ElementRef;
   @ViewChild('downloadLink') downloadLinkx: ElementRef;
+
+  showSpinner: boolean = false;
 
   constructor(private accessService: AccessService) { }
 
@@ -38,10 +40,12 @@ export class UserdetailsComponent implements OnInit {
 
   subscribeEventIdsec(): void {
     this.eventSubscription = this.idseg.subscribe((idseguridad: number) => {
+      this.showSpinner = true;
       const body = { idseguridad: idseguridad }
       this.accessService.detailAccess(body).subscribe((resp: any) => {
         this.detalleAcceso = resp.detalleAcceso;
         // Emite la foto de perfil de acceso al componente padre qraccess.component
+        this.showSpinner = false;
         this.foto.emit(resp.foto);
         this.generarQR(this.detalleAcceso.cedula_visitante)
       })
