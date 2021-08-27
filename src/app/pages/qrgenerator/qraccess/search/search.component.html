@@ -6,14 +6,19 @@
         <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
             <mat-icon>close</mat-icon>
         </button>
-        <mat-hint align="start">Busqueda por cédula</mat-hint>
+        <mat-hint align="start">Busqueda por nombre, cédula, cliente o estado [aprobado, solicitado].</mat-hint>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
         <mat-label>Seleccionar</mat-label>
-        <mat-select>
-            <mat-option value="option">Option</mat-option>
+        <mat-select [(value)]="selectedProject">
+            <!-- <mat-option value="" disabled selected>Seleccione un cliente o proyecto</mat-option> -->
+            <mat-option *ngFor="let project of projects" [value]="project"
+            >{{project.nombre_empresa}} - LOC{{project.loc}} - {{project.datacenter}}</mat-option>
         </mat-select>
         <mat-hint align="end">Seleccione un cliente o proyecto ^</mat-hint>
     </mat-form-field>
+
+    <!-- <div *ngIf="selectedProject">{{selectedProject.nombre_empresa}} - {{selectedProject.datacenter}}</div> 
+    https://www.concretepage.com/angular-material/angular-material-select-getting-setting-value -->
 </div>

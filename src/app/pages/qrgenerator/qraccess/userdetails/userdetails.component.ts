@@ -44,7 +44,6 @@ export class UserdetailsComponent implements OnInit {
       const body = { idseguridad: idseguridad }
       this.accessService.detailAccess(body).subscribe((resp: any) => {
         this.detalleAcceso = resp.detalleAcceso;
-        console.log(this.detalleAcceso);
         // Emite la foto de perfil de acceso al componente padre qraccess.component
         this.showSpinner = false;
         this.foto.emit(resp.foto);

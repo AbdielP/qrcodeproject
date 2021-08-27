@@ -38,7 +38,6 @@ export class UserlistComponent implements OnInit {
       const body = { termino: term };
       this.accessService.searchAccess(body).subscribe((resp: Array<Search>) => {
         this.searchArray = resp;
-        console.log(this.searchArray);
         this.showSpinner = false;
       });
     })
