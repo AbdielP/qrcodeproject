@@ -33,22 +33,28 @@ export class UserlistComponent implements OnInit {
     this.eventSubscription.unsubscribe();
   }
 
-  subscribeEventProject(): void {
+  private subscribeEventProject(): void {
     this.eventSubscription = this.project.subscribe((value: object) => {
-      console.log(value);
+      // console.log(value);
+      this.showSpinner = true;
+      this.callSearchService(value, 'api/cwpidc/acces/search/project');
     });
   }
 
   //Suscribirse al evento enviado desde el padre para escuchar el parameto de busqueda
-  subscribeEventParam(): void {
+  private subscribeEventParam(): void {
     this.eventSubscription = this.term.subscribe((term: string) => {
       this.showSpinner = true;
       const body = { termino: term };
-      this.accessService.searchAccess(body).subscribe((resp: Array<Search>) => {
-        this.searchArray = resp;
-        this.showSpinner = false;
-      });
+      this.callSearchService(body, 'api/cwpidc/acces/search');
     })
+  }
+
+  private callSearchService(body: object, url: string): void {
+    this.accessService.searchAccess(body, url).subscribe((resp: Array<Search>) => {
+      this.searchArray = resp;
+      this.showSpinner = false;
+    });
   }
 
   onClick(id: number):void {
