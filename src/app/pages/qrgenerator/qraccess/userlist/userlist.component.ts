@@ -12,6 +12,7 @@ export class UserlistComponent implements OnInit {
 
   // Variables para recibir el termino desde el padre
   @Input() term: Observable<string>;
+  @Input() project: Observable<Object>;
   eventSubscription: Subscription;
   searchArray: Array<Search> = [];
   showSpinner: boolean;
@@ -23,12 +24,19 @@ export class UserlistComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.subscribeEventProject();
     this.subscribeEventParam();
   }
 
   // tslint:disable-next-line: use-lifecycle-interface
   ngOnDestroy(): void {
     this.eventSubscription.unsubscribe();
+  }
+
+  subscribeEventProject(): void {
+    this.eventSubscription = this.project.subscribe((value: object) => {
+      console.log(value);
+    });
   }
 
   //Suscribirse al evento enviado desde el padre para escuchar el parameto de busqueda
