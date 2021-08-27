@@ -9,6 +9,7 @@ import { Foto } from 'src/app/interfaces/foto';
 })
 export class QraccessComponent {
 
+  eventSearchByProject: Subject<Object> = new Subject<Object>();
   eventParam: Subject<String> = new Subject<String>();
   eventIdsec: Subject<Number> = new Subject<Number>();
   eventFoto: Subject<Foto> = new Subject<Foto>();
@@ -18,6 +19,10 @@ export class QraccessComponent {
   searchParam(param: string): void {
     // Emite el parametro de busqueda al componente hijo -> (userlist.component)
     this.eventParam.next(param);
+  }
+
+  searchByProject(value: object): void {
+    this.eventSearchByProject.next(value);
   }
 
   // Recive del hijo (user.list) el idseguridad para mostrar los detalles del acceso

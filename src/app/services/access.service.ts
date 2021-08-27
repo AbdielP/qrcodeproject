@@ -14,8 +14,8 @@ export class AccessService {
 
   constructor(private http: HttpClient) { }
 
-  searchAccess(body: object): Observable<Search[]> {
-    return this.http.post<object>(`${this.SERVER_URL}/api/cwpidc/acces/search`, body)
+  searchAccess(body: object, url: string): Observable<Search[]> {
+    return this.http.post<object>(`${this.SERVER_URL}/${url}`, body)
     .pipe(map((resp: Search) => {
       return resp['personal'];
     }),(catchError(err => [

@@ -15,6 +15,7 @@ export class SearchComponent implements OnInit {
   value: string = '';
   eventSubscription: Subscription;
   @Output() searchValue = new EventEmitter<String>();
+  @Output() searchByProject = new EventEmitter<Object>();
   projects: Proyecto[] = [];
 
   constructor(private generalService: GeneralService) {}
@@ -38,7 +39,8 @@ export class SearchComponent implements OnInit {
   }
 
   doSomething(event: MatSelectChange): void {
-    console.log(event)
+    const value = event.value;
+    this.searchByProject.emit(value);
   }
 
 }
