@@ -11,14 +11,11 @@
 
     <mat-form-field appearance="outline">
         <mat-label>Seleccionar</mat-label>
-        <mat-select [(value)]="selectedProject">
+        <mat-select (selectionChange)="doSomething($event)">
             <!-- <mat-option value="" disabled selected>Seleccione un cliente o proyecto</mat-option> -->
             <mat-option *ngFor="let project of projects" [value]="project"
             >{{project.nombre_empresa}} - LOC{{project.loc}} - {{project.datacenter}}</mat-option>
         </mat-select>
         <mat-hint align="end">Seleccione un cliente o proyecto ^</mat-hint>
     </mat-form-field>
-
-    <!-- <div *ngIf="selectedProject">{{selectedProject.nombre_empresa}} - {{selectedProject.datacenter}}</div> 
-    https://www.concretepage.com/angular-material/angular-material-select-getting-setting-value -->
 </div>

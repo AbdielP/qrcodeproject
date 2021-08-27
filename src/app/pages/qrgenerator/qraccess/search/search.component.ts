@@ -3,6 +3,7 @@ import { Component, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { GeneralService } from 'src/app/services/general.service';
 import { Proyecto } from 'src/app/interfaces/proyecto';
+import { MatSelectChange } from '@angular/material/select';
 
 @Component({
   selector: 'app-search',
@@ -15,7 +16,6 @@ export class SearchComponent implements OnInit {
   eventSubscription: Subscription;
   @Output() searchValue = new EventEmitter<String>();
   projects: Proyecto[] = [];
-  selectedProject: object = {};
 
   constructor(private generalService: GeneralService) {}
   
@@ -37,8 +37,8 @@ export class SearchComponent implements OnInit {
     })
   }
 
-  onChange(): void {
-    console.log(this.selectedProject)
+  doSomething(event: MatSelectChange): void {
+    console.log(event)
   }
 
 }
