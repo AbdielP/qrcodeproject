@@ -90,6 +90,12 @@ mat-divider {
     width: 100%;
 }
 
+.btn-download-qr {
+    position: fixed;
+    bottom: 50px;
+    right: 50px; 
+}
+
 .text-info {
     color: var(--text-info)!important;
 }

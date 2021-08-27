@@ -5,7 +5,7 @@
 
     <div *ngIf="!showSpinner && detalleAcceso" class="container-list">
         <!-- COL IZQ -->
-        <mat-list >
+        <mat-list>
             <div mat-subheader>Detalles del acceso</div>
             <mat-list-item>
                 <mat-icon mat-list-icon>face</mat-icon>
@@ -24,7 +24,7 @@
                 <div mat-line>{{detalleAcceso.fecha_solicitud}} </div>
                 <!-- <div mat-line>Vigente hace 69 días.</div> -->
             </mat-list-item>
-           
+
         </mat-list>
         <!-- COL DER -->
         <mat-list>
@@ -52,14 +52,15 @@
                 <div mat-line>{{detalleAcceso.fecha_expiracion}}</div>
                 <!-- <div mat-line><small>Expira en 69 días.</small></div> -->
             </mat-list-item>
-            
+
         </mat-list>
         <!-- lista del QR? -->
         <mat-list class="lista-qr">
             <mat-list-item class="list-item-qr">
                 <div mat-line>
                     <!-- Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit aperiam delectus incidunt doloremque repellendus at recusandae architecto, totam atque facilis odio esse itaque et ducimus. -->
-                    <div class="body-container-qr" #screen (click)="downloadQR(detalleAcceso.nombre_visitante, detalleAcceso.cedula_visitante)">
+                    <div class="body-container-qr" #screen
+                        (click)="downloadQR(detalleAcceso.nombre_visitante, detalleAcceso.cedula_visitante)">
                         <div class="container-qr-info">
                             <h4>Bienvenido</h4>
                             <h4>{{detalleAcceso.nombre_visitante | titlecase}}</h4>
@@ -74,8 +75,13 @@
                         <a #downloadLink></a>
                     </div>
                 </div>
-               
+
             </mat-list-item>
         </mat-list>
     </div>
 </div>
+
+<button *ngIf="!showSpinner && detalleAcceso" class="btn-download-qr" (click)="downloadQR(detalleAcceso.nombre_visitante, detalleAcceso.cedula_visitante)" mat-fab color="primary"
+    aria-label="Example icon button with a filter list icon" matTooltip="Descargar QR">
+    <mat-icon>file_download</mat-icon>
+</button>
