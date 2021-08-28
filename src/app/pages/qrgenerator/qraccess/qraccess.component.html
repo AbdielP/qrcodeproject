@@ -3,15 +3,14 @@
         <div class="search-container">
             <app-search (searchValue)="searchParam($event)" (searchByProject)="searchByProject($event)"></app-search>
             <div class="img-container">
-                <img *ngIf="!img" src="../../../../assets/img/nobg.png" alt="img">
-                <img *ngIf="img" [src]="img" alt="img" onerror="this.onerror!=null;this.src='../../../../assets/img/nobg.png';">
+                <app-picture [usercedula]="eventUsercedula.asObservable()"></app-picture>
             </div>
         </div>
         <div class="list-container">
             <app-userlist [project]="eventSearchByProject.asObservable()" [term]="eventParam.asObservable()" (idseguridad)="getAccessId($event)"></app-userlist>
         </div>
         <div class="info-container">
-            <app-userdetails [idseg]="eventIdsec.asObservable()" (foto)="getFoto($event)"></app-userdetails>
+            <app-userdetails [idseg]="eventIdsec.asObservable()" (usercedula)="getUsercedula($event)"></app-userdetails>
         </div>
     </div>
 </div>

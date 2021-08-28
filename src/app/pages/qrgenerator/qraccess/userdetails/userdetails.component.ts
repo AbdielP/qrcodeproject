@@ -1,8 +1,10 @@
 import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { AccessDetail } from 'src/app/interfaces/access-detail';
-import { Foto } from 'src/app/interfaces/foto';
+
+import { AccessDetail } from 'src/app/interfaces/access-detail'
 import { AccessService } from 'src/app/services/access.service';
+import { Search } from 'src/app/interfaces/search';
+
 import QRCode from 'qrcode';
 import html2canvas from 'html2canvas';
 
@@ -17,7 +19,7 @@ export class UserdetailsComponent implements OnInit {
   @Input() idseg: Observable<number>;
   eventSubscription: Subscription;
   
-  @Output() foto = new EventEmitter<Foto>();
+  @Output() usercedula = new EventEmitter<string>();
   detalleAcceso: AccessDetail;
   qrcode: string = '';
 
@@ -42,12 +44,11 @@ export class UserdetailsComponent implements OnInit {
     this.eventSubscription = this.idseg.subscribe((idseguridad: number) => {
       this.showSpinner = true;
       const body = { idseguridad: idseguridad }
-      this.accessService.detailAccess(body).subscribe((resp: any) => {
-        this.detalleAcceso = resp.detalleAcceso;
-        // Emite la foto de perfil de acceso al componente padre qraccess.component
+      this.accessService.detailAccess(body).subscribe((resp: AccessDetail) => {
+        this.detalleAcceso = resp;
         this.showSpinner = false;
-        this.foto.emit(resp.foto);
-        this.generarQR(this.detalleAcceso.cedula_visitante)
+        this.usercedula.emit(this.detalleAcceso.cedula_visitante);
+        this.generarQR(this.detalleAcceso.cedula_visitante);
       })
     })
   }

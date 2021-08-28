@@ -1,0 +1,8 @@
+<!-- <img src="../../../../assets/img/nobg.png" alt="img"> -->
+<!-- <img *ngIf="img" [src]="img" alt="img" onerror="this.onerror!=null;this.src='../../../../assets/img/nobg.png';"> -->
+
+<div [ngSwitch]="foto">
+    <div *ngSwitchCase="foto!=null"><img *ngIf="foto" [src]="foto" alt="img" onerror="this.onerror!=null;this.src='../../../../assets/img/nobg.png';"></div>
+    <div *ngSwitchCase="foto===null"><img src="../../../../../assets/img/noimage.png" alt="img"></div>
+    <div *ngSwitchDefault><img src="../../../../assets/img/nobg.png" alt="img"></div>
+</div>
