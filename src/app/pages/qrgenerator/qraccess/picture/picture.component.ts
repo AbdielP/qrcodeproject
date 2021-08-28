@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { GeneralService } from 'src/app/services/general.service';
+import { Foto } from 'src/app/interfaces/foto';
+import { AccessService } from 'src/app/services/access.service';
 
 @Component({
   selector: 'app-picture',
@@ -11,8 +12,9 @@ export class PictureComponent implements OnInit {
 
   @Input() usercedula: Observable<string>;
   eventSubscription: Subscription;
+  foto: string;
 
-  constructor(private generalService: GeneralService) { }
+  constructor(private accessService: AccessService) { }
 
   ngOnInit(): void {
     this.subscribeEventCedula();
@@ -25,7 +27,15 @@ export class PictureComponent implements OnInit {
 
   subscribeEventCedula(): void {
     this.eventSubscription = this.usercedula.subscribe((cedula: string) => {
-      console.log(cedula);
+      this.getPicture(cedula);
+    })
+  }
+
+  private getPicture(cedula: string): void {
+    const body = { cedula }
+    this.accessService.getPhoto(body).subscribe((foto: Foto) => {
+      this.foto = foto.url;
+      console.log(this.foto)
     })
   }
 
