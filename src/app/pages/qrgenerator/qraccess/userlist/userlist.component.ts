@@ -54,7 +54,6 @@ export class UserlistComponent implements OnInit {
 
   private callSearchService(body: object, url: string): void {
     this.accessService.searchAccess(body, url).subscribe((resp: Array<Search>) => {
-      console.log(resp);
       if (resp.length < 1) {
         this.noResults = true;
       } else {
