@@ -10,7 +10,8 @@
         </div>
 
         <mat-list>
-            <cdk-virtual-scroll-viewport itemSize="50" class="viewport">
+            <div *ngIf="noResults">Sin resultados para esta busqueda</div>
+            <cdk-virtual-scroll-viewport *ngIf="!noResults" itemSize="50" class="viewport">
                 <ng-container *cdkVirtualFor="let acceso of searchArray">
                     <mat-list-item class="bro" (click)="onClick(acceso.idseguridad)" matTooltip="Acceso para: {{acceso.compania_visitante}}" matTooltipPosition="right">
                         <p class="mat-body-1">{{acceso.nombre_visitante | uppercase}}</p>

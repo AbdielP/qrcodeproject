@@ -16,11 +16,13 @@ export class UserlistComponent implements OnInit {
   eventSubscription: Subscription;
   searchArray: Array<Search> = [];
   showSpinner: boolean;
+  noResults: boolean;
 
   @Output() idseguridad = new EventEmitter<number>();
 
   constructor(private accessService: AccessService) { 
     this.showSpinner = false;
+    this.noResults = false;
   }
 
   ngOnInit(): void {
@@ -52,8 +54,14 @@ export class UserlistComponent implements OnInit {
 
   private callSearchService(body: object, url: string): void {
     this.accessService.searchAccess(body, url).subscribe((resp: Array<Search>) => {
+      console.log(resp);
+      if (resp.length < 1) {
+        this.noResults = true;
+      } else {
+        this.noResults = false;
+      }
       this.searchArray = resp;
-      console.log(this.searchArray);
+      // console.log(this.searchArray);
       this.showSpinner = false;
     });
   }
