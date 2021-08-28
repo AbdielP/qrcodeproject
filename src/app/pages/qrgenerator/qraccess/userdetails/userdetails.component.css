@@ -63,7 +63,7 @@
     background-repeat: no-repeat;
     
     cursor: pointer;
-}.container-qr-info{
+}.container-qr-info {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -126,4 +126,10 @@ mat-divider {
 
 .hide {
     display: none!important;
+}
+
+@media screen and (max-width: 850px){
+    .container-qr-info {
+        padding-top: 32px;
+    }
 }

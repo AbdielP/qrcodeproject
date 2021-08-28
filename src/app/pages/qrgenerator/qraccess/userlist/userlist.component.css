@@ -1,5 +1,3 @@
-@import '../../../../../styles.css';
-
 .main-container {
     /* background-color: green; */
     border-right: 1px solid var(--border-primary-color);
@@ -70,4 +68,22 @@ mat-list-item {
 
 .text-success {
     color: var(--text-success)
+}
+
+@media screen and (max-width: 960px){
+    mat-list-item p {
+        font-size: .7rem!important;
+    }
+}
+
+@media screen and (max-width: 768px){
+    mat-list-item p {
+        font-size: .85rem!important;
+    }
+}
+
+@media screen and (max-width: 430px){
+    mat-list-item p {
+        font-size: .7rem!important;
+    }
 }
