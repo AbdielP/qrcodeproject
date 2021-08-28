@@ -1,3 +1,3 @@
 <img *ngIf="foto===''" src="../../../../assets/img/nobg.png" alt="img">
 <img *ngIf="foto===null" src="../../../../assets/img/noimage.png" alt="img">
-<img *ngIf="foto" [src]="foto" alt="img">
+<img *ngIf="foto" [src]="foto" alt="img" onerror="this.onerror!=null;this.src='../../../../assets/img/nobg.png';">
