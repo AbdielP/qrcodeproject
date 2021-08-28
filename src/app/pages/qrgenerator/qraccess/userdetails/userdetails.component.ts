@@ -17,7 +17,8 @@ export class UserdetailsComponent implements OnInit {
   @Input() idseg: Observable<number>;
   eventSubscription: Subscription;
   
-  @Output() foto = new EventEmitter<Foto>();
+  // @Output() foto = new EventEmitter<Foto>();
+  @Output() usercedula = new EventEmitter<string>();
   detalleAcceso: AccessDetail;
   qrcode: string = '';
 
@@ -46,8 +47,9 @@ export class UserdetailsComponent implements OnInit {
         this.detalleAcceso = resp.detalleAcceso;
         // Emite la foto de perfil de acceso al componente padre qraccess.component
         this.showSpinner = false;
-        this.foto.emit(resp.foto);
-        this.generarQR(this.detalleAcceso.cedula_visitante)
+        // this.foto.emit(resp.foto);
+        this.usercedula.emit(this.detalleAcceso.cedula_visitante);
+        this.generarQR(this.detalleAcceso.cedula_visitante);
       })
     })
   }
