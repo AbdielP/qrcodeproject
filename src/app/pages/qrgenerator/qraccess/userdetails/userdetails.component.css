@@ -130,6 +130,6 @@ mat-divider {
 
 @media screen and (max-width: 850px){
     .container-qr-info {
-        padding-top: 32px;
+        padding-top: 30px;
     }
 }

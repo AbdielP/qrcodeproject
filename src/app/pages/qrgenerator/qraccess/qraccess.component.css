@@ -60,7 +60,7 @@ app-search {
     }
 
     .list-container, .info-container {
-        height: 200px;
+        height: auto!important;
         grid-column: 1/3;
     }
 
