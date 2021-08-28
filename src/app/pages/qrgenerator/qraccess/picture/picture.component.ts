@@ -12,7 +12,7 @@ export class PictureComponent implements OnInit {
 
   @Input() usercedula: Observable<string>;
   eventSubscription: Subscription;
-  foto: string;
+  foto: string = '';
 
   constructor(private accessService: AccessService) { }
 
@@ -34,8 +34,10 @@ export class PictureComponent implements OnInit {
   private getPicture(cedula: string): void {
     const body = { cedula }
     this.accessService.getPhoto(body).subscribe((foto: Foto) => {
+      if (foto === null) {
+        return this.foto = null;
+      }
       this.foto = foto.url;
-      console.log(this.foto)
     })
   }
 
