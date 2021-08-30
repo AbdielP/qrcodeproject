@@ -31,7 +31,7 @@ section, .grid div {
 
 .mat-form-field {
     width: 50%;
-    background-color: red;
+    /* background-color: red; */
 }.img-container {
     display: flex;
     align-items: center;
