@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+    frontend:
+        image: "qrfrontend:aws"
+        container_name: "qrfrontend"
+        depends_on: 
+            - backend
+        ports: 
+            - "80:80"
+    backend: 
+        image: "qrbackend:aws"
+        container_name: "qrbackend"
+        ports: 
+            - "3000:3000"
