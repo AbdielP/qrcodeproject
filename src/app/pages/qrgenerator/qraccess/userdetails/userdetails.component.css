@@ -100,6 +100,13 @@ mat-divider {
     right: 50px; 
 }
 
+.logo-estado {
+    /* background-color: rebeccapurple; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .text-info {
     color: var(--text-info)!important;
 }

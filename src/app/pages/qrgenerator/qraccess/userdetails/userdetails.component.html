@@ -30,12 +30,20 @@
         </mat-list>
         <!-- COL DER -->
         <mat-list>
-            <div *ngIf="detalleAcceso.estado==='aprobado' || detalleAcceso.estado==='Aprobado'" class="text-success" mat-subheader>Acceso aprobado
-                <mat-icon mat-list-icon>how_to_reg</mat-icon>
-            </div>
-            <div *ngIf="detalleAcceso.estado==='solicitado' || detalleAcceso.estado==='Solicitado'" class="text-warning" mat-subheader>
-                <mat-icon mat-list-icon>watch_later</mat-icon>
-                Acceso en trámite
+            <div [ngSwitch]="detalleAcceso.estado">
+                <div *ngSwitchCase="'aprobado'">
+                    <p class="text-success" mat-subheader>Acceso aprobado <mat-icon mat-list-icon class="logo-estado">how_to_reg</mat-icon></p>
+                </div>
+                <div *ngSwitchCase="'Aprobado'">
+                    <p class="text-success" mat-subheader>Acceso aprobado <mat-icon mat-list-icon class="logo-estado">how_to_reg</mat-icon></p>
+                </div>
+                <div *ngSwitchCase="'solicitado'">
+                    <p class="text-warning" mat-subheader>Acceso en trámite <mat-icon mat-list-icon class="logo-estado">watch_later</mat-icon></p>
+                </div>
+                <div *ngSwitchCase="'Solicitado'">
+                    <p class="text-warning" mat-subheader>Acceso en trámite <mat-icon mat-list-icon class="logo-estado">watch_later</mat-icon></p>
+                </div>
+                <div *ngSwitchDefault>{{detalleAcceso.estado}}</div>
             </div>
             <mat-list-item>
                 <mat-icon mat-list-icon>badge</mat-icon>
@@ -56,6 +64,8 @@
             </mat-list-item>
 
         </mat-list>
+
+        <mat-divider></mat-divider>
         <!-- lista del QR? -->
         <mat-list class="lista-qr">
             <mat-list-item class="list-item-qr">
