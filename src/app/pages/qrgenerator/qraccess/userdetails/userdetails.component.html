@@ -24,7 +24,7 @@
                 <div *ngIf="detalleAcceso.gerencia===''" mat-line>Solicitado: {{detalleAcceso.fecha_solicitud}}</div>
                 <div *ngIf="detalleAcceso.gerencia!==''" mat-line matTooltip="Ver formulario de acceso">Solicitado: <a [href]="detalleAcceso.gerencia" target="_blank">{{detalleAcceso.fecha_solicitud}}</a></div>
                 <!-- <mat-icon mat-list-icon>plagiarism</mat-icon> -->
-                <!-- <div mat-line>Vigente hace 69 días.</div> -->
+                <div *ngIf="estadoAcceso" mat-line>Vigente hace <b>{{estadoAcceso.vigencia}}</b> días.</div>
             </mat-list-item>
 
         </mat-list>
@@ -60,7 +60,7 @@
             <mat-list-item>
                 <mat-icon mat-list-icon>event_busy</mat-icon>
                 <div mat-line>Expiración: {{detalleAcceso.fecha_expiracion}}</div>
-                <!-- <div mat-line><small>Expira en 69 días.</small></div> -->
+                <div *ngIf="estadoAcceso" mat-line><small>Expira en <b>{{estadoAcceso.expiracion}}</b> días.</small></div>
             </mat-list-item>
 
         </mat-list>

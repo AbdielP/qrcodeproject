@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 
+import { Vigencia } from 'src/app/interfaces/accesos/vigencia';
 import { AccessDetail } from 'src/app/interfaces/access-detail'
 import { AccessService } from 'src/app/services/access.service';
 
@@ -20,6 +21,7 @@ export class UserdetailsComponent implements OnInit {
   
   @Output() usercedula = new EventEmitter<string>();
   detalleAcceso: AccessDetail;
+  estadoAcceso: Vigencia;
   qrcode: string = '';
 
   @ViewChild('screen') screenx: ElementRef;
@@ -58,8 +60,8 @@ export class UserdetailsComponent implements OnInit {
   }
 
   private accessVigencia(body: object) {
-    this.accessService.getAccessVigencia(body).subscribe(resp => {
-      console.log(resp);
+    this.accessService.getAccessVigencia(body).subscribe((resp: Vigencia) => {
+      this.estadoAcceso = resp;
     })
   }
 

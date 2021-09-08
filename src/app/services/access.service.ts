@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { Search } from 'src/app/interfaces/search';
 import { AccessDetail } from 'src/app/interfaces/access-detail';
 import { Foto } from '../interfaces/foto';
+import { Vigencia } from '../interfaces/accesos/vigencia';
 
 @Injectable({
   providedIn: 'root'
@@ -43,9 +44,11 @@ export class AccessService {
     ])));
   }
 
-  getAccessVigencia(body: object) {
+  getAccessVigencia(body: object): Observable<Vigencia> {
     return this.http.post<object>(`${this.SERVER_URL}/api/cwpidc/acces/details/vigencia`, body)
-    .pipe((catchError(err => [
+    .pipe(map((resp: Vigencia) => {
+      return resp['estado'][0];
+    }),(catchError(err => [
       console.log(err)
     ])));
   }
