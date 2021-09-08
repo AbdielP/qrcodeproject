@@ -2,7 +2,7 @@
     <!-- <input type="text" placeholder="Buscar"> -->
     <mat-form-field style="margin-bottom: 0" class="example-form-field" appearance="outline">
         <mat-label>Buscar</mat-label>
-        <input matInput type="text" [(ngModel)]="value" (keyup)="search(value)">
+        <input matInput type="text" [(ngModel)]="value" (keyup)="search(value)" (keyup.enter)="onEnter(value)">
         <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
             <mat-icon>close</mat-icon>
         </button>
@@ -11,7 +11,7 @@
 
     <mat-form-field appearance="outline">
         <mat-label>Seleccionar</mat-label>
-        <mat-select (selectionChange)="doSomething($event)">
+        <mat-select (selectionChange)="onChangeSelect($event)">
             <!-- <mat-option value="" disabled selected>Seleccione un cliente o proyecto</mat-option> -->
             <mat-option *ngFor="let project of projects" [value]="project"
             >{{project.nombre_empresa}} - LOC{{project.loc}} - {{project.datacenter}}</mat-option>

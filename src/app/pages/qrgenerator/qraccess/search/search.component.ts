@@ -38,9 +38,13 @@ export class SearchComponent implements OnInit {
     })
   }
 
-  doSomething(event: MatSelectChange): void {
+  onChangeSelect(event: MatSelectChange): void {
     const value = event.value;
     this.searchByProject.emit(value);
+  }
+
+  onEnter(term: string): void {
+    console.log('Weeell weeell')
   }
 
 }
