@@ -27,14 +27,10 @@
     font-size: inherit;
 }
 
-.lista-qr {
-    width: 100%;
-}
+
+.lista-qr,
 .list-item-qr {
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    /* background-color: greenyellow; */
     width: 100%;
     height: auto!important;
 }.list-item-qr .mat-line {
@@ -42,6 +38,10 @@
     justify-content: center;
     white-space: inherit!important;
     /* background-color: salmon!important; */
+}
+.qr-mat-line {
+    width: 100%;
+    /* background-color: rebeccapurple; */
 }
 
 .spinner-container {
@@ -57,7 +57,8 @@
     display: flex;
     background-image: url('../../../../../assets/img/QR_base.PNG');
     /* background-color: gray; */
-    margin-top: 2%;
+    box-sizing: border-box;
+    margin-bottom: 5px;
     height: 250px;
     background-size: 100%;
     background-repeat: no-repeat;
@@ -105,6 +106,17 @@ mat-divider {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.a-show-form {
+    width: 100%;
+    display: flex;
+    margin-left: 10px;
+    margin-top: 2px;
+    text-decoration: none;
+    /* background-color: green; */
+}.a-show-form:hover {
+    text-decoration: underline;
 }
 
 .text-info {

@@ -21,8 +21,7 @@
             <!-- <div mat-subheader>Solicitado</div> -->
             <mat-list-item>
                 <mat-icon mat-list-icon>event_available</mat-icon>
-                <div *ngIf="detalleAcceso.gerencia===''" mat-line>Solicitado: {{detalleAcceso.fecha_solicitud}}</div>
-                <div *ngIf="detalleAcceso.gerencia!==''" mat-line matTooltip="Ver formulario de acceso">Solicitado: <a [href]="detalleAcceso.gerencia" target="_blank">{{detalleAcceso.fecha_solicitud}}</a></div>
+                <div mat-line>Solicitado: {{detalleAcceso.fecha_solicitud}}</div>
                 <!-- <mat-icon mat-list-icon>plagiarism</mat-icon> -->
                 <div *ngIf="estadoAcceso" mat-line>Vigente hace <b>{{estadoAcceso.vigencia}}</b> días.</div>
             </mat-list-item>
@@ -67,9 +66,10 @@
 
         <mat-divider></mat-divider>
         <!-- lista del QR? -->
+        <a class="a-show-form" *ngIf="detalleAcceso.gerencia!==''" [href]="detalleAcceso.gerencia" target="_blank">Ver formulario de acceso </a>
         <mat-list class="lista-qr">
             <mat-list-item class="list-item-qr">
-                <div mat-line>
+                <div class="qr-mat-line" mat-line>
                     <!-- Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit aperiam delectus incidunt doloremque repellendus at recusandae architecto, totam atque facilis odio esse itaque et ducimus. -->
                     <div class="body-container-qr" #screen matTooltip="Descargar QR"
                         (click)="downloadQR(detalleAcceso.nombre_visitante, detalleAcceso.cedula_visitante)">
