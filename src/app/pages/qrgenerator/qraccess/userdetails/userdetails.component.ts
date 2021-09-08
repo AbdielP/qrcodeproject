@@ -3,7 +3,6 @@ import { Observable, Subscription } from 'rxjs';
 
 import { AccessDetail } from 'src/app/interfaces/access-detail'
 import { AccessService } from 'src/app/services/access.service';
-import { Search } from 'src/app/interfaces/search';
 
 import QRCode from 'qrcode';
 import html2canvas from 'html2canvas';
@@ -44,12 +43,23 @@ export class UserdetailsComponent implements OnInit {
     this.eventSubscription = this.idseg.subscribe((idseguridad: number) => {
       this.showSpinner = true;
       const body = { idseguridad: idseguridad }
-      this.accessService.detailAccess(body).subscribe((resp: AccessDetail) => {
-        this.detalleAcceso = resp;
-        this.showSpinner = false;
-        this.usercedula.emit(this.detalleAcceso.cedula_visitante);
-        this.generarQR(this.detalleAcceso.cedula_visitante);
-      })
+      this.acessDetail(body);
+      this.accessVigencia(body);
+    })
+  }
+
+  private acessDetail(body: object) {
+    this.accessService.detailAccess(body).subscribe((resp: AccessDetail) => {
+      this.detalleAcceso = resp;
+      this.showSpinner = false;
+      this.usercedula.emit(this.detalleAcceso.cedula_visitante);
+      this.generarQR(this.detalleAcceso.cedula_visitante);
+    });
+  }
+
+  private accessVigencia(body: object) {
+    this.accessService.getAccessVigencia(body).subscribe(resp => {
+      console.log(resp);
     })
   }
 

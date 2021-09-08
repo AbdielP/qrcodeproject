@@ -43,5 +43,12 @@ export class AccessService {
     ])));
   }
 
+  getAccessVigencia(body: object) {
+    return this.http.post<object>(`${this.SERVER_URL}/api/cwpidc/acces/details/vigencia`, body)
+    .pipe((catchError(err => [
+      console.log(err)
+    ])));
+  }
+
   // .pipe(retry(1) parece útil...
 }
