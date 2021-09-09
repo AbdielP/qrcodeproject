@@ -26,19 +26,15 @@ export class SearchComponent implements OnInit {
 
   // Busqueda a partir de 4 caracteres
   search(term: string): void {
-    if (term.length > 3) {
+    if ( term === '') this.searchValue.emit(term);
+    if (term.length > 3) 
       // Emitiendo parametro de busqueda al padre (qraccess.component)
       this.searchValue.emit(term);
-      console.log('Busqueda automatica')
-    }
   }
 
   // Busqueda presionando enter (menos de 4 caracteres)
   onEnter(term: string): void {
-    if (term.length < 4) {
-      this.searchValue.emit(term);
-      console.log('Busqueda enter')
-    }
+    if (term.length < 4) this.searchValue.emit(term);
   }
   
   getProjects(): void {

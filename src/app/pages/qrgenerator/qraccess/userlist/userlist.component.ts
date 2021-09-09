@@ -46,6 +46,7 @@ export class UserlistComponent implements OnInit {
   //Suscribirse al evento enviado desde el padre para escuchar el parameto de busqueda
   private subscribeEventParam(): void {
     this.eventSubscription = this.term.subscribe((term: string) => {
+      if (term === '') return this.searchArray = [];
       this.showSpinner = true;
       const body = { termino: term };
       this.callSearchService(body, 'api/cwpidc/acces/search');
