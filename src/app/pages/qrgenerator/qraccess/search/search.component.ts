@@ -24,13 +24,23 @@ export class SearchComponent implements OnInit {
     this.getProjects();
   }
 
+  // Busqueda a partir de 4 caracteres
   search(term: string): void {
     if (term.length > 3) {
       // Emitiendo parametro de busqueda al padre (qraccess.component)
       this.searchValue.emit(term);
+      console.log('Busqueda automatica')
     }
   }
 
+  // Busqueda presionando enter (menos de 4 caracteres)
+  onEnter(term: string): void {
+    if (term.length < 4) {
+      this.searchValue.emit(term);
+      console.log('Busqueda enter')
+    }
+  }
+  
   getProjects(): void {
     this.generalService.selectProjects().subscribe((resp: Proyecto[]) => {
       // console.log(resp);
@@ -43,8 +53,5 @@ export class SearchComponent implements OnInit {
     this.searchByProject.emit(value);
   }
 
-  onEnter(term: string): void {
-    console.log('Weeell weeell')
-  }
 
 }
