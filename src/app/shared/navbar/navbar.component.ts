@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   <mat-toolbar>
     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
       <mat-icon>more_vert</mat-icon>
+      Menú
     </button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item [routerLink]="['/acceso']" routerLinkActive="router-link-active">
@@ -17,7 +18,6 @@ import { Component, OnInit } from '@angular/core';
         <span>QR Carga</span>
       </button>
     </mat-menu>
-    <small>Menú</small>
   </mat-toolbar>
   `,
   styles: [`
@@ -25,6 +25,10 @@ import { Component, OnInit } from '@angular/core';
       height: var(--navbar-height);
       background-color: var(--navbar-background)!important;
       border-bottom: 1px solid var(--border-primary-color)!important;
+    }
+
+    .router-link-active {
+      background-color: #e7e7e7;
     }
   `
   ]
