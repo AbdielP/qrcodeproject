@@ -3,9 +3,22 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-navbar',
   template: `
-    <mat-toolbar>
-      
-    </mat-toolbar>
+  <mat-toolbar>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item [routerLink]="['/acceso']" routerLinkActive="router-link-active">
+        <mat-icon>qr_code_2</mat-icon>
+        <span>QR Accesos</span>
+      </button>
+      <button mat-menu-item [routerLink]="['/carga']" routerLinkActive="router-link-active">
+        <mat-icon>inventory_2</mat-icon>
+        <span>QR Carga</span>
+      </button>
+    </mat-menu>
+    <small>Menú</small>
+  </mat-toolbar>
   `,
   styles: [`
     mat-toolbar {
@@ -22,25 +35,5 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  // <mat-toolbar>
-  //     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-  //       <mat-icon>more_vert</mat-icon>
-  //     </button>
-  //     <mat-menu #menu="matMenu">
-  //       <button mat-menu-item>
-  //         <mat-icon>dialpad</mat-icon>
-  //         <span>Redial</span>
-  //       </button>
-  //       <button mat-menu-item disabled>
-  //         <mat-icon>voicemail</mat-icon>
-  //         <span>Check voice mail</span>
-  //       </button>
-  //       <button mat-menu-item>
-  //         <mat-icon>notifications_off</mat-icon>
-  //         <span>Disable alerts</span>
-  //       </button>
-  //     </mat-menu>
-  //   </mat-toolbar>
 
 }
