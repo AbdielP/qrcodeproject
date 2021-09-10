@@ -1,0 +1,29 @@
+@import '../../../../styles.css';
+
+.container {
+    height: calc(100vh - var(--navbar-height));
+}
+
+.grid {
+    /* background-color: royalblue; */
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
+
+.form-container {
+    grid-column: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    height: 100%;
+    /* background-color: yellowgreen; */
+    height: calc(100vh - var(--navbar-height));
+}
+
+.qr-container {
+    grid-column: auto;
+    height: 100%;
+    background-color: violet;
+}
