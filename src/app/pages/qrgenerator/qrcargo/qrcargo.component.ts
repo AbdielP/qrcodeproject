@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QrcargoComponent implements OnInit {
 
+  qrcode: string = '';
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  downloadQR(): void {}
 
 }

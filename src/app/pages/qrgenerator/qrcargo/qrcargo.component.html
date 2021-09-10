@@ -10,7 +10,15 @@
         </div>
 
         <div class="qr-container">
-            <p>lol2</p>
+            <div class="body-container-qr" #screen matTooltip="Descargar QR" (click)="downloadQR()">
+                <div *ngIf="qrcode != ''" class="container-qr-img">
+                    <img *ngIf="qrcode" src="{{qrcode}}" alt="QR Code">
+                </div>
+            </div>
+            <div [hidden]="true" id="download">
+                <img #canvas>
+                <a #downloadLink></a>
+            </div>
         </div>
     </div>
 </div>
