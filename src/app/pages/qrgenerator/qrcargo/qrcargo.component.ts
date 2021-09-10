@@ -1,3 +1,4 @@
+import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -14,6 +15,8 @@ export class QrcargoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  downloadQR(): void {}
+  downloadQR(form: NgForm): void {
+    console.log(form);
+  }
 
 }

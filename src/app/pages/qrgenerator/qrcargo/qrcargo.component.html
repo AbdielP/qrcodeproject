@@ -3,14 +3,16 @@
 
         <div class="form-container">
             <h2>Generador de códigos QR para área de carga.</h2>
-            <mat-form-field appearance="fill">
-                <mat-label>Textarea</mat-label>
-                <textarea matInput></textarea>
-            </mat-form-field>
+            <form autocomplete="off" (ngSubmit)="downloadQR(form)" #form="ngForm">
+                <mat-form-field appearance="fill">
+                    <mat-label>Textarea</mat-label>
+                    <textarea matInput name="data"></textarea>
+                </mat-form-field>
+            </form>
         </div>
 
         <div class="qr-container">
-            <div class="body-container-qr" #screen matTooltip="Descargar QR" (click)="downloadQR()">
+            <div class="body-container-qr" #screen matTooltip="Descargar QR" (click)="downloadQR(form)">
                 <div *ngIf="qrcode != ''" class="container-qr-img">
                     <img *ngIf="qrcode" src="{{qrcode}}" alt="QR Code">
                 </div>
