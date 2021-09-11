@@ -5,14 +5,19 @@
             <h2>Generador de códigos QR para área de carga.</h2>
             <form autocomplete="off" (ngSubmit)="downloadQR(form)" #form="ngForm">
                 <mat-form-field appearance="fill">
-                    <mat-label>Textarea</mat-label>
-                    <textarea matInput name="data"></textarea>
+                    <mat-label>Plantilla área de carga</mat-label>
+                    <textarea matInput name="data" [ngModel]="data.plantillaCarga"></textarea>
                 </mat-form-field>
+                <!-- <button class="btn-generar-qr" mat-flat-button color="warn">Generar QR</button> -->
+                <button class="btn-generar-qr" mat-icon-button aria-label="Example icon-button with a heart icon">
+                    Descargar QR
+                    <mat-icon>qr_code</mat-icon>
+                  </button>
             </form>
         </div>
 
         <div class="qr-container">
-            <div class="body-container-qr" #screen matTooltip="Descargar QR" (click)="downloadQR(form)">
+            <div class="body-container-qr" #screen matTooltip="Descargar QR">
                 <div *ngIf="qrcode != ''" class="container-qr-img">
                     <img *ngIf="qrcode" src="{{qrcode}}" alt="QR Code">
                 </div>
