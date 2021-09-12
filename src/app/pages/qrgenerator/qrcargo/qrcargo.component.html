@@ -2,8 +2,11 @@
     <div class="grid">
 
         <div class="form-container">
-            <h2>Plantilla QR área de carga.</h2>
-            <small>Utilice esta plantilla como base para el código QR. Agregue o elimine los campos si es es requerido.</small>
+            <div class="div-title">
+                <h2>Plantilla para código QR.</h2>
+                <small>Agregue o elimine los campos si es es requerido.</small>
+            </div>
+            
             <form autocomplete="off" (ngSubmit)="downloadQR(form)" #form="ngForm">
                 <mat-form-field appearance="outline">
                     <mat-label>Plantilla área de carga</mat-label>

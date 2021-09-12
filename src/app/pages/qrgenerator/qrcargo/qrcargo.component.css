@@ -25,8 +25,23 @@
 
 .form-container {
     border-right: 1px solid var(--border-primary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     overflow: hidden;
 }
+
+.div-title {
+    /* background-color: indianred; */
+    width: 80%;
+    margin-bottom: 15px;
+    padding-left: 15px;
+}
+
+.div-title small, .div-title h2 {
+    margin: 0;
+}
+
 
 .body-container-qr {
     width: 678px;
