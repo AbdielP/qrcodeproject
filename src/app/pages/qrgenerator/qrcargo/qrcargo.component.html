@@ -2,19 +2,19 @@
     <div class="grid">
 
         <div class="form-container">
-            <div class="div-title">
+            <!-- <div class="div-title"> -->
                 <h2>Plantilla para código QR.</h2>
-                <small>Agregue o elimine los campos si es es requerido.</small>
-            </div>
+                <!-- <small>Agregue o elimine los campos si es es requerido.</small> -->
+            <!-- </div> -->
             
             <form autocomplete="off" (ngSubmit)="downloadQR(form)" #form="ngForm">
                 <mat-form-field appearance="outline">
-                    <mat-label>Plantilla área de carga</mat-label>
+                    <mat-label>Agregue o elimine campos si es es requerido.</mat-label>
                     <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="30"
                      name="data" [ngModel]="data.plantillaCarga"></textarea>
                 </mat-form-field>
                 <!-- <button class="btn-generar-qr" mat-flat-button color="warn">Generar QR</button> -->
-                <button class="btn-generar-qr" mat-icon-button aria-label="Example icon-button with a heart icon">
+                <button class="btn-generar-qr" mat-icon-button aria-label="Example icon-button with a heart icon" matTooltip="Descargar QR">
                     Descargar QR
                     <mat-icon>qr_code</mat-icon>
                 </button>
@@ -22,7 +22,7 @@
         </div>
 
         <div class="qr-container">
-            <div class="body-container-qr" #screen matTooltip="Descargar QR">
+            <div class="body-container-qr" #screen>
                 <div *ngIf="qrcode != ''" class="container-qr-img">
                     <img *ngIf="qrcode" src="{{qrcode}}" alt="QR Code">
                 </div>
