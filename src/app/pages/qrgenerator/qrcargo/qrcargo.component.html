@@ -2,17 +2,19 @@
     <div class="grid">
 
         <div class="form-container">
-            <h2>Generador de códigos QR para área de carga.</h2>
+            <h2>Plantilla QR área de carga.</h2>
+            <small>Utilice esta plantilla como base para el código QR. Agregue o elimine los campos si es es requerido.</small>
             <form autocomplete="off" (ngSubmit)="downloadQR(form)" #form="ngForm">
-                <mat-form-field appearance="fill">
+                <mat-form-field appearance="outline">
                     <mat-label>Plantilla área de carga</mat-label>
-                    <textarea matInput name="data" [ngModel]="data.plantillaCarga"></textarea>
+                    <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="30"
+                     name="data" [ngModel]="data.plantillaCarga"></textarea>
                 </mat-form-field>
                 <!-- <button class="btn-generar-qr" mat-flat-button color="warn">Generar QR</button> -->
                 <button class="btn-generar-qr" mat-icon-button aria-label="Example icon-button with a heart icon">
                     Descargar QR
                     <mat-icon>qr_code</mat-icon>
-                  </button>
+                </button>
             </form>
         </div>
 
