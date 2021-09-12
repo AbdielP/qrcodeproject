@@ -44,10 +44,13 @@
 
 
 .body-container-qr {
-    width: 678px;
-    height: 320px;
+    /* width: 678px; */
+    /* height: 320px; */
+    width: 520px;
+    height: 250px;
     background-image: url('../../../../assets/img/QRCargo_base.PNG');
     background-repeat: no-repeat;
+    background-size: contain;
 }
 
 form {
