@@ -89,3 +89,14 @@ form {
 
     /* background-color: hotpink!important; */
 }
+
+.btn-download-qr {
+    position: fixed;
+    bottom: 50px;
+    right: 50px; 
+}
+
+.text-danger {
+    color: var(--mat-warn-color);
+    margin: 0;
+}

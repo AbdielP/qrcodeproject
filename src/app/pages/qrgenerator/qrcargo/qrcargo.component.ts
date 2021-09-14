@@ -24,7 +24,7 @@ SN: X8215467WZ
 Marca: Dell
 Modelo: Poweredge 2950
 Registrado por: Nombre_de_Especialista_IDC`
-  }
+}
   qrcode: string = '';
   @ViewChild('autosize') autosize: CdkTextareaAutosize;
   @ViewChild('screen') screenx: ElementRef;
@@ -33,7 +33,7 @@ Registrado por: Nombre_de_Especialista_IDC`
 
   constructor(private _ngZone: NgZone) { }
 
-  downloadQR(form: NgForm): void {
+  showQR(form: NgForm): void {
     // console.log(form.controls.data.value);
     this.generarQR(form.controls.data.value)
   }
@@ -46,6 +46,15 @@ Registrado por: Nombre_de_Especialista_IDC`
     })
     .catch(err => {
       console.error(err);
+    });
+  }
+
+  downloadQR(): void {
+    html2canvas(this.screenx.nativeElement).then(canvas => {
+      this.canvasx.nativeElement.src = canvas.toDataURL();
+      this.downloadLinkx.nativeElement.href = canvas.toDataURL('image/png');
+      this.downloadLinkx.nativeElement.download = `QR_CARGA.png`;
+      this.downloadLinkx.nativeElement.click();
     });
   }
 
