@@ -1,14 +1,16 @@
 import { NgForm } from '@angular/forms';
-import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
+import { Component, NgZone, ViewChild, ElementRef } from '@angular/core';
 import { CdkTextareaAutosize } from '@angular/cdk/text-field';
-import {take} from 'rxjs/operators';
+import { take } from 'rxjs/operators';
+import QRCode from 'qrcode';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-qrcargo',
   templateUrl: './qrcargo.component.html',
   styleUrls: ['./qrcargo.component.css']
 })
-export class QrcargoComponent implements OnInit {
+export class QrcargoComponent {
 
   data = {
     plantillaCarga: `ID de Cliente: LOC####
@@ -24,16 +26,27 @@ Modelo: Poweredge 2950
 Registrado por: Nombre_de_Especialista_IDC`
   }
   qrcode: string = '';
+  @ViewChild('autosize') autosize: CdkTextareaAutosize;
+  @ViewChild('screen') screenx: ElementRef;
+  @ViewChild('canvas') canvasx: ElementRef;
+  @ViewChild('downloadLink') downloadLinkx: ElementRef;
 
   constructor(private _ngZone: NgZone) { }
 
-  @ViewChild('autosize') autosize: CdkTextareaAutosize;
-
-  ngOnInit(): void {
+  downloadQR(form: NgForm): void {
+    // console.log(form.controls.data.value);
+    this.generarQR(form.controls.data.value)
   }
 
-  downloadQR(form: NgForm): void {
-    console.log(form);
+  generarQR(data: string): void {
+    QRCode.toDataURL(data)
+    .then((qrcode: string) => {
+      this.qrcode = qrcode;
+      // console.log(qrcode);
+    })
+    .catch(err => {
+      console.error(err);
+    });
   }
 
   triggerResize() {

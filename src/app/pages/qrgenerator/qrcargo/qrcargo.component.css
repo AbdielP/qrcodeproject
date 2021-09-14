@@ -46,11 +46,30 @@
 .body-container-qr {
     /* width: 678px; */
     /* height: 320px; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     width: 520px;
     height: 250px;
     background-image: url('../../../../assets/img/QRCargo_base.PNG');
+    /* background-color: greenyellow; */
     background-repeat: no-repeat;
     background-size: contain;
+}
+
+.container-qr-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding: 10% 0; */
+    width: 55.5%;
+    margin-bottom: 11px;
+    /* background-color: green; */
+    /* height: 100%; */
+}.container-qr-img img{
+    /* margin-bottom: 37%; */
+    margin-left: 3%;
+    width: 82%;
 }
 
 form {
