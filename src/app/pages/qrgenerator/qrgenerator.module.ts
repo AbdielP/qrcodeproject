@@ -1,4 +1,4 @@
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -16,7 +16,8 @@ import { PictureComponent } from './qraccess/picture/picture.component';
   imports: [
     CommonModule,
     MaterialsModule,
-    FormsModule,
+    // FormsModule,
+    ReactiveFormsModule,
     QrgeneratorRoutingModule
   ]
 })
