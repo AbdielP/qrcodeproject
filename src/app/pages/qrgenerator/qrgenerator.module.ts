@@ -16,7 +16,7 @@ import { PictureComponent } from './qraccess/picture/picture.component';
   imports: [
     CommonModule,
     MaterialsModule,
-    // FormsModule,
+    FormsModule,
     ReactiveFormsModule,
     QrgeneratorRoutingModule
   ]

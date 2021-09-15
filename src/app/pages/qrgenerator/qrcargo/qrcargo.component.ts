@@ -1,5 +1,5 @@
-import { NgForm, FormGroup, FormBuilder } from '@angular/forms';
-import { Component, NgZone, ViewChild, ElementRef } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Component, NgZone, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { CdkTextareaAutosize } from '@angular/cdk/text-field';
 import { take } from 'rxjs/operators';
 import QRCode from 'qrcode';
@@ -10,34 +10,59 @@ import html2canvas from 'html2canvas';
   templateUrl: './qrcargo.component.html',
   styleUrls: ['./qrcargo.component.css']
 })
-export class QrcargoComponent {
+export class QrcargoComponent implements OnInit {
 
   form: FormGroup;
-
-//   data = {
-//     plantillaCarga: `ID de Cliente: LOC####
-// Cliente: Nombre_de_la_Empresa_propietaria
-// Responsable: Nombre_de_la_persona_que_entrega_el_articulo
-// Teléfono: ####-#### / ####-####
-// Email: Usuario@DominioDelCliente.com
-// Fecha de Ingreso: dd/mm/aaaa
-// Fecha de Egreso: dd/mm/aaaa
-// SN: X8215467WZ
-// Marca: Dell
-// Modelo: Poweredge 2950
-// Registrado por: Nombre_de_Especialista_IDC`
-// }
   qrcode: string = '';
   @ViewChild('autosize') autosize: CdkTextareaAutosize;
   @ViewChild('screen') screenx: ElementRef;
   @ViewChild('canvas') canvasx: ElementRef;
   @ViewChild('downloadLink') downloadLinkx: ElementRef;
 
-  constructor(private _ngZone: NgZone, private fb: FormBuilder) { }
+  constructor(private _ngZone: NgZone, private fb: FormBuilder) { 
+    this.crearFormulario();
+  }
 
-  showQR(form: NgForm): void {
-    // console.log(form.controls.data.value);
-    this.generarQR(form.controls.data.value)
+  ngOnInit() {
+    // this.dataChanged();
+  }
+
+  get dataInvalid() {
+    return this.form.get('data').invalid;
+  }
+
+  get test() {
+    // Había una funció
+    return this.form.get('data').dirty;
+  }
+
+  crearFormulario() {
+    // DECLARANDO EL FORMULARIO <-------
+    this.form = this.fb.group({
+      data: [`ID de Cliente: LOC####
+Cliente: Nombre_de_la_Empresa_propietaria
+Responsable: Nombre_de_la_persona_que_entrega_el_articulo
+Teléfono: ####-#### / ####-####
+Email: Usuario@DominioDelCliente.com
+Fecha de Ingreso: dd/mm/aaaa
+Fecha de Egreso: dd/mm/aaaa
+SN: X8215467WZ
+Marca: Dell
+Modelo: Poweredge 2950
+Registrado por: Nombre_de_Especialista_IDC`, Validators.required]
+    })
+  }
+
+  dataChanged() {
+    this.form.get('data').valueChanges.subscribe(selectedValue => {
+      return true;
+    })
+  }
+
+  showQR(): void {
+    // console.log(this.form.controls.data.value);
+    this.generarQR(this.form.controls.data.value);
+    this.form.reset();
   }
 
   generarQR(data: string): void {

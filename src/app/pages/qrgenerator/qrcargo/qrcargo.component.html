@@ -7,24 +7,22 @@
                 <!-- <small>Agregue o elimine los campos si es es requerido.</small> -->
             <!-- </div> -->
             
-            <form autocomplete="off" (ngSubmit)="showQR(form)" #form="ngForm"> <!--Remover el ngForm-->
+            <form autocomplete="off" (ngSubmit)="showQR()" [formGroup]="form">
                 <mat-form-field appearance="outline">
                     <mat-label>Agregue o elimine campos si es es requerido.</mat-label>
-                    <!-- <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="30"
-                     name="data" [ngModel]="data.plantillaCarga" #input="ngModel" required></textarea> -->
                      <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="30"
-                     ></textarea>
+                     formControlName="data"></textarea>
                 </mat-form-field>
-                <p *ngIf="input.invalid" class="text-danger">Este campo es requerido.</p>
+                <p *ngIf="dataInvalid" class="text-danger">Este campo es requerido.</p>
                 <!-- <button class="btn-generar-qr" mat-flat-button color="warn">Generar QR</button> -->
-                <button *ngIf="!input.invalid" class="btn-generar-qr" mat-icon-button aria-label="Example icon-button with a heart icon" matTooltip="Generar código QR">
+                <button class="btn-generar-qr" mat-icon-button aria-label="Example icon-button with a heart icon" matTooltip="Generar código QR">
                     Generar QR
                     <mat-icon>qr_code</mat-icon>
                 </button>
             </form>
         </div>
 
-        <!-- <p  && !input.dirty -->
+        <p *ngIf="test">Data changed!</p>
 
         <div *ngIf="qrcode != ''" class="qr-container">
             <div class="body-container-qr" #screen>
