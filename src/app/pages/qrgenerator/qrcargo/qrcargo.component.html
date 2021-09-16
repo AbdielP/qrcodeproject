@@ -22,7 +22,7 @@
             </form>
         </div>
         
-        <div *ngIf="qrcode != '' && !formDirty" class="qr-container">
+        <div [ngClass]="{ 'animate__animated animate__fadeOut animate__faster': formDirty === true }" *ngIf="qrcode != ''" class="qr-container">
             <div class="body-container-qr" #screen>
                 <div *ngIf="qrcode != ''" class="container-qr-img">
                     <img *ngIf="qrcode" src="{{qrcode}}" alt="QR Code">
