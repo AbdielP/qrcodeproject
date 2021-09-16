@@ -13,6 +13,7 @@ import html2canvas from 'html2canvas';
 export class QrcargoComponent implements OnInit {
 
   form: FormGroup;
+  formDirty: boolean = false;
   qrcode: string = '';
   @ViewChild('autosize') autosize: CdkTextareaAutosize;
   @ViewChild('screen') screenx: ElementRef;
@@ -24,16 +25,11 @@ export class QrcargoComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.dataChanged();
+    this.dataChanged();
   }
 
   get dataInvalid() {
     return this.form.get('data').invalid;
-  }
-
-  get test() {
-    // Había una funció
-    return this.form.get('data').dirty;
   }
 
   crearFormulario() {
@@ -55,14 +51,14 @@ Registrado por: Nombre_de_Especialista_IDC`, Validators.required]
 
   dataChanged() {
     this.form.get('data').valueChanges.subscribe(selectedValue => {
-      return true;
+      this.formDirty = true;
     })
   }
 
   showQR(): void {
     // console.log(this.form.controls.data.value);
     this.generarQR(this.form.controls.data.value);
-    this.form.reset();
+    this.formDirty = false;
   }
 
   generarQR(data: string): void {

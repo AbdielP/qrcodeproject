@@ -21,10 +21,8 @@
                 </button>
             </form>
         </div>
-
-        <p *ngIf="test">Data changed!</p>
-
-        <div *ngIf="qrcode != ''" class="qr-container">
+        
+        <div *ngIf="qrcode != '' && !formDirty" class="qr-container">
             <div class="body-container-qr" #screen>
                 <div *ngIf="qrcode != ''" class="container-qr-img">
                     <img *ngIf="qrcode" src="{{qrcode}}" alt="QR Code">
@@ -38,7 +36,7 @@
     </div>
 </div>
 
-<button *ngIf="qrcode != ''" class="btn-download-qr" (click)="downloadQR()" mat-fab color="accent"
+<button *ngIf="qrcode != '' && !formDirty" class="btn-download-qr" (click)="downloadQR()" mat-fab color="accent"
     aria-label="Example icon button with a filter list icon" matTooltip="Descargar QR">
     <mat-icon>file_download</mat-icon>
 </button>
