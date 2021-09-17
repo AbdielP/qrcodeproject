@@ -19,10 +19,8 @@
     align-items: center;
     box-sizing: border-box;
     padding: 1rem;
-    /* background-color: yellowgreen; */
     height: calc(100vh - var(--navbar-height));
 }
-
 .form-container {
     border-right: 1px solid var(--border-primary-color);
     display: flex;
@@ -49,8 +47,8 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    width: 480px;
-    height: 250px;
+    width: 456px;
+    height: 210px;
     background-image: url('../../../../assets/img/QRCargo_base.PNG');
     /* background-color: greenyellow; */
     background-repeat: no-repeat;
@@ -62,9 +60,8 @@
     align-items: center;
     justify-content: center;
     /* padding: 10% 0; */
-    width: 55.5%;
-    /* margin-bottom: 11px; */
-    margin-bottom: 28px;
+    width: 55.6%;
+    margin-top: 1px;
     /* height: 100%; */
 }.container-qr-img img{
     /* margin-bottom: 37%; */

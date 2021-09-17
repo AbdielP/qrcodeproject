@@ -41,7 +41,6 @@ Registrado por: Nombre_de_Especialista_IDC`
 
   ngOnInit() {
     this.dataChanged();
-    console.log(this.hoy);
   }
 
   get dataInvalid() {
