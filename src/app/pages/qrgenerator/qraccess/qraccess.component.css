@@ -1,7 +1,6 @@
 @import '../../../../styles.css';
 
 .container {
-    /* background-color: green; */
     height: calc(100vh - var(--navbar-height));
 }
 
@@ -46,7 +45,7 @@ app-search {
 
 @media screen and (max-width: 768px){
     .container {
-        height: auto;
+        height: auto!important;
     }
 
     .search-container {

@@ -1,5 +1,4 @@
 .main-container {
-    /* background-color: green; */
     border-right: 1px solid var(--border-primary-color);
     height: 100%;
 }
@@ -21,7 +20,6 @@
 }
 
 mat-list-item {
-    /* background-color: rebeccapurple; */
     min-height: 49px!important;
     height: 49px!important;
     cursor: pointer;
@@ -77,6 +75,11 @@ mat-list-item {
 }
 
 @media screen and (max-width: 768px){
+    .viewport {
+        height: 200px;
+        /* background-color: cadetblue; */
+    }
+    
     mat-list-item p {
         font-size: .85rem!important;
     }
