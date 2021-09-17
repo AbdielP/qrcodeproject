@@ -14,12 +14,34 @@
                      formControlName="data"></textarea>
                 </mat-form-field>
                 <p *ngIf="dataInvalid" class="text-danger">Este campo es requerido.</p>
-                <!-- <button class="btn-generar-qr" mat-flat-button color="warn">Generar QR</button> -->
-                <button class="btn-generar-qr" mat-icon-button aria-label="Example icon-button with a heart icon" matTooltip="Generar código QR">
+                <!-- <div> -->
+                    <button class="btn-generar-qr" mat-flat-button color="primary" matTooltip="Generar código QR">Generar QR
+                        <mat-icon>qr_code</mat-icon>
+                    </button>
+                    <!-- <button type="button" (click)="resetForm()" mat-flat-button color="secondary">Resetear</button> -->
+                    <!-- <button *ngIf="!dataInvalid" class="btn-generar-qr" mat-icon-button aria-label="Example icon-button with a heart icon" matTooltip="Generar código QR">
+                        Generar QR
+                        <mat-icon>qr_code</mat-icon>
+                    </button> -->
+                    <!-- <button class="btn-generar-qr" type="button" (click)="resetForm()" mat-icon-button  matTooltip="Restaurar plantilla a su estado original">
+                        Resetear
+                        <mat-icon>qr_code</mat-icon>
+                    </button> -->
+                <!-- </div> -->
+                
+                <!-- <button *ngIf="!dataInvalid" class="btn-generar-qr" mat-icon-button aria-label="Example icon-button with a heart icon" matTooltip="Generar código QR">
                     Generar QR
                     <mat-icon>qr_code</mat-icon>
                 </button>
+                <button class="btn-generar-qr" type="button" (click)="resetForm()" mat-icon-button  matTooltip="Restaurar plantilla a su estado original">
+                    Resetear
+                    <mat-icon>qr_code</mat-icon>
+                </button> -->
             </form>
+        </div>
+
+        <div class="dirty-msg animate__animated animate__fadeIn animate__faster" *ngIf="formDirty === true">
+            <p>Presione el botón <b>"Generar QR"</b> para aplicar los cambios.</p>
         </div>
         
         <div [ngClass]="{ 'animate__animated animate__fadeOut animate__faster': formDirty === true }" *ngIf="qrcode != ''" class="qr-container">

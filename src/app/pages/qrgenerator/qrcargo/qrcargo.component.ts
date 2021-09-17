@@ -12,6 +12,17 @@ import html2canvas from 'html2canvas';
 })
 export class QrcargoComponent implements OnInit {
 
+  textTemplate: string = `ID de Cliente: LOC####
+Cliente: Nombre_de_la_Empresa_propietaria
+Responsable: Nombre_de_la_persona_que_entrega_el_articulo
+Teléfono: ####-#### / ####-####
+Email: Usuario@DominioDelCliente.com
+Fecha de Ingreso: dd/mm/aaaa
+Fecha de Egreso: dd/mm/aaaa
+SN: X8215467WZ
+Marca: Dell
+Modelo: Poweredge 2950
+Registrado por: Nombre_de_Especialista_IDC`
   form: FormGroup;
   formDirty: boolean = false;
   qrcode: string = '';
@@ -35,18 +46,16 @@ export class QrcargoComponent implements OnInit {
   crearFormulario() {
     // DECLARANDO EL FORMULARIO <-------
     this.form = this.fb.group({
-      data: [`ID de Cliente: LOC####
-Cliente: Nombre_de_la_Empresa_propietaria
-Responsable: Nombre_de_la_persona_que_entrega_el_articulo
-Teléfono: ####-#### / ####-####
-Email: Usuario@DominioDelCliente.com
-Fecha de Ingreso: dd/mm/aaaa
-Fecha de Egreso: dd/mm/aaaa
-SN: X8215467WZ
-Marca: Dell
-Modelo: Poweredge 2950
-Registrado por: Nombre_de_Especialista_IDC`, Validators.required]
+      data: [this.textTemplate, Validators.required]
     })
+  }
+
+  resetForm() {
+    this.form.reset({
+      data: this.textTemplate
+    });
+    this.formDirty = false;
+    this.qrcode = '';
   }
 
   dataChanged() {
