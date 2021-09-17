@@ -23,7 +23,9 @@
                 <mat-icon mat-list-icon>event_available</mat-icon>
                 <div mat-line>Solicitado: {{detalleAcceso.fecha_solicitud}}</div>
                 <!-- <mat-icon mat-list-icon>plagiarism</mat-icon> -->
-                <div *ngIf="estadoAcceso" mat-line>Vigente hace <b>{{estadoAcceso.vigencia}}</b> días.</div>
+                <div *ngIf="estadoAcceso" mat-line>
+                    <ng-container *ngIf="detalleAcceso.estado === 'Aprobado' || detalleAcceso.estado === 'aprobado'">Vigente hace <b>{{estadoAcceso.vigencia}}</b> días.</ng-container>
+                </div>
             </mat-list-item>
 
         </mat-list>
@@ -59,7 +61,9 @@
             <mat-list-item>
                 <mat-icon mat-list-icon>event_busy</mat-icon>
                 <div mat-line>Expiración: {{detalleAcceso.fecha_expiracion}}</div>
-                <div *ngIf="estadoAcceso" mat-line><small>Expira en <b>{{estadoAcceso.expiracion}}</b> días.</small></div>
+                <div *ngIf="estadoAcceso" mat-line>
+                    <ng-container *ngIf="detalleAcceso.estado === 'Aprobado' || detalleAcceso.estado === 'aprobado'">Expira en <b>{{estadoAcceso.expiracion}}</b> días.</ng-container>
+                </div>
             </mat-list-item>
 
         </mat-list>
