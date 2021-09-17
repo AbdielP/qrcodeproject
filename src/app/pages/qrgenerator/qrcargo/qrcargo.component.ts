@@ -1,6 +1,7 @@
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, NgZone, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { CdkTextareaAutosize } from '@angular/cdk/text-field';
+import { DateService } from 'src/app//services/date.service';
 import { take } from 'rxjs/operators';
 import QRCode from 'qrcode';
 import html2canvas from 'html2canvas';
@@ -11,18 +12,9 @@ import html2canvas from 'html2canvas';
   styleUrls: ['./qrcargo.component.css']
 })
 export class QrcargoComponent implements OnInit {
-
-  textTemplate: string = `ID de Cliente: LOC####
-Cliente: Nombre_de_la_Empresa_propietaria
-Responsable: Nombre_de_la_persona_que_entrega_el_articulo
-Teléfono: ####-#### / ####-####
-Email: Usuario@DominioDelCliente.com
-Fecha de Ingreso: dd/mm/aaaa
-Fecha de Egreso: dd/mm/aaaa
-SN: X8215467WZ
-Marca: Dell
-Modelo: Poweredge 2950
-Registrado por: Nombre_de_Especialista_IDC`
+  
+  hoy: Date;
+  textTemplate: string;
   form: FormGroup;
   formDirty: boolean = false;
   qrcode: string = '';
@@ -31,12 +23,25 @@ Registrado por: Nombre_de_Especialista_IDC`
   @ViewChild('canvas') canvasx: ElementRef;
   @ViewChild('downloadLink') downloadLinkx: ElementRef;
 
-  constructor(private _ngZone: NgZone, private fb: FormBuilder) { 
+  constructor(private _ngZone: NgZone, private fb: FormBuilder, private dateService: DateService) { 
+    this.hoy = dateService.getDate();
+    this.textTemplate = `ID de Cliente: LOC####
+Cliente: Nombre_de_la_Empresa_propietaria
+Responsable: Nombre_de_la_persona_que_entrega_el_articulo
+Teléfono: ####-#### / ####-####
+Email: Usuario@DominioDelCliente.com
+Fecha de Ingreso: ${this.hoy}
+Fecha de Egreso: dd/mm/aaaa
+SN: X8215467WZ
+Marca: Dell
+Modelo: Poweredge 2950
+Registrado por: Nombre_de_Especialista_IDC`
     this.crearFormulario();
   }
 
   ngOnInit() {
     this.dataChanged();
+    console.log(this.hoy);
   }
 
   get dataInvalid() {
@@ -85,7 +90,7 @@ Registrado por: Nombre_de_Especialista_IDC`
     html2canvas(this.screenx.nativeElement).then(canvas => {
       this.canvasx.nativeElement.src = canvas.toDataURL();
       this.downloadLinkx.nativeElement.href = canvas.toDataURL('image/png');
-      this.downloadLinkx.nativeElement.download = `QR_CARGA.png`;
+      this.downloadLinkx.nativeElement.download = `QR_CARGA_${this.hoy}.png`;
       this.downloadLinkx.nativeElement.click();
     });
   }
