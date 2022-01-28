@@ -1,27 +1,42 @@
-# Qrcodes
+# Qrcodes Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.1.
+![](./captures/qraccess.png)
 
-## Development server
+## Table of contents
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- [Overview](#overview)
+  - [Screenshot](#screenshot)
+- [My process](#my-process)
+  - [Built with](#built-with)
+- [Author](#author)
 
-## Code scaffolding
+## Overview
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+An useful app than generate QR codes. It has an API than serve data from a MySQL database.
 
-## Build
+It's make the register and access process to a datacenter easier. It also have a section to generate QR codes for tagging cargo.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### Screenshot
 
-## Running unit tests
+![](./captures/qrcargo.png)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![](./captures/qraccess_mobile.png)![](./captures/qrcargo_mobile.png)
 
-## Running end-to-end tests
+## My process
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### Built with
 
-## Further help
+- Semantic HTML5 markup
+- CSS custom properties
+- Angular - JS library
+- Angular Material
+- CSS Grid
+- Flexbox
+- NodeJS
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Author
+
+- Portfolio: - [Portfolio](https://abdielp.github.io/webdeveloper-portfolio/index.html)
+- GitHub - [@AbdielP](https://github.com/AbdielP)
+- Twitter - [@abdiel262](https://twitter.com/Abdiel262)
+- Linkedin - [@abdielpinzoncarrera](https://www.linkedin.com/in/abdielpinzoncarrera/)
