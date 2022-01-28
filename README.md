@@ -20,7 +20,7 @@ It's make the register and access process to a datacenter easier. It also have a
 
 ![](./captures/qrcargo.png)
 
-![](./captures/qraccess_mobile.png)![](./captures/qrcargo_mobile.png)
+<img width="45%" src="./captures/qraccess_mobile.png" alt="mobile"> <img width="45%" src="./captures/qrcargo_mobile.png" alt="mobile">
 
 ## My process
 
