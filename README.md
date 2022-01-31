@@ -28,7 +28,7 @@ It's make the register and access process to a datacenter easier. It also have a
 
 - Semantic HTML5 markup
 - CSS custom properties
-- Angular - JS library
+- Angular - JS Framework
 - Angular Material
 - CSS Grid
 - Flexbox
